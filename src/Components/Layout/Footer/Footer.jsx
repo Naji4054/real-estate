@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <>
-        <section className="bg-[#171b2a] grid grid-cols-5 text-white">
+        <section className="bg-[#171b2a] grid grid-cols-5 gap-7 text-white">
             <div className="max-w-[330px] ">
                 <div  className="mb-5">
                     <img src="/images/brand-logo.png" alt="brand-logo" />
@@ -11,13 +11,13 @@ const Footer = () => {
                     </p>
                 </div>
                 <div className="mb-3">
-                    <p className="flex items-center"><span><img src="/images/location-pin.png" alt="location-pin" /></span>Brooklyn, New York, United States</p>
+                    <p className="flex items-center gap-2"><span><img src="/images/location-pin.png" alt="location-pin" /></span>Brooklyn, New York, United States</p>
                 </div>
                 <div className="mb-3">
-                    <p className="flex items-center"><span><img src="/images/phone-icon.png" alt="location-pin" /></span>+0123-456789</p>
+                    <p className="flex items-center gap-2 "><span><img src="/images/phone-icon.png" alt="location-pin" /></span>+0123-456789</p>
                 </div>
                 <div className="mb-3">
-                    <p className="flex items-center"><span><img src="/images/mail-icon.png" alt="location-pin" /></span>example@example.com</p>
+                    <p className="flex items-center gap-2"><span><img src="/images/mail-icon.png" alt="location-pin" /></span>example@example.com</p>
                 </div>
             </div>
 
