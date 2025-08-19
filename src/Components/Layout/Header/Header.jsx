@@ -45,7 +45,7 @@ import { useState } from "react";
                     <img src="" alt="" />
                 </div>
                 <div>
-                    <button>Add Listing</button>
+                    <button className="border border-solid border-[#ff5a3c] text-[white] p-[11px_18px] bg-[#ff5a3c]">Add Listing</button>
                 </div>
             </div>
         </nav>
