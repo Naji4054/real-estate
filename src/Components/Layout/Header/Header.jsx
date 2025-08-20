@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
  const Header = () => {
 
@@ -12,9 +13,9 @@ import { useState } from "react";
             </div>
             <div>
                 <ul className="flex gap-[5em]" >
-                    <li>Home</li>
+                    <li><a href="/">Home</a></li>
                     <li className="relative group">
-                        <button onClick={()=> setIsOpen(prev=> !prev)}>About</button>
+                        <NavLink to={'/about '}>About</NavLink>
                      
                                 <div className="bg-red-200 rounded-sm p-4 absolute hidden group-hover:block">
                                     <ul className="flex flex-col">

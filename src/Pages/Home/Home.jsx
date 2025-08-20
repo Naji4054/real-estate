@@ -1,10 +1,11 @@
 import Banner from "./Banner";
 import Services from "./Services/Services";
 
-const Home = ( )=>{
+const Home = () => {
     return (
         <>
         <Banner></Banner>
+        
         <Services></Services>
         </>
     )

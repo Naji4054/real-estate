@@ -65,7 +65,7 @@ const Banner =()=> {
                 <div className="overlay absolute w-full min-h-[500px] bg-[#2a2a2a88]"></div>
                 <div className="flex items-center flex-col text-white z-10 gap-4">
                     <p className="flex items-center"><span><img src="/images/home-icon.png" alt="home-icon"/></span>Qurter Real Estate</p>
-                    <h1 className="text-[40px] max-w-[500px] text-center">FIND YOUR DREAM HOUSE WITH US</h1>
+                    <h1 className="text-[41px] max-w-[500px] text-center">FIND YOUR DREAM HOUSE WITH US</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta, sequi.</p>
                     <div>
                         <button className="border border-solid border-[#ff5a3c] text-[white] p-[11px_18px] bg-[#ff5a3c]">MAKE AN ENQUIRY</button>
@@ -73,7 +73,7 @@ const Banner =()=> {
                 </div>
               
             </div>
-            <div className="max-w-[70%] mx-auto bg-[#ffffff] relative flex justify-between px-10 py-5 top-[-37px] wrapper items-center shadow-[2px_2px_10px_-1px_rgba(0,0,0,0.3)]">
+            <div className="max-w-[70%] mx-auto bg-[#ffffff] relative flex justify-between px-10 py-5 top-[-37px] wrapper items-center shadow-[2px_2px_10px_-1px_rgba(0,0,0,0.3)] mb-[72px]">
                 <Select placeholder="Locality" options={options} onChange={(values) => setValues(values)}  />
                 <Select placeholder="Property Status" options={options1} onChange={(values) => setValues(values)} />
                 <Select placeholder="Property Type" options={options2} onChange={(values) => setValues(values)} />
