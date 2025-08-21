@@ -13,3 +13,9 @@
 .wrapper > div:nth-child(3) {
     flex-basis: 26%;
 }
+
+.slick-dots {
+    position: static !important;  /* removes absolute positioning */
+    bottom: auto !important;      /* resets bottom offset */
+              /* optional: add spacing instead */
+  }

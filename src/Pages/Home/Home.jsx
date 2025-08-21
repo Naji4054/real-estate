@@ -1,12 +1,13 @@
 import Banner from "./Banner";
+import LatestProperties from "./Latest/LatestProperties";
 import Services from "./Services/Services";
 
 const Home = () => {
     return (
         <>
-        <Banner></Banner>
-        
-        <Services></Services>
+        <Banner/>
+        <Services/>
+        <LatestProperties/>
         </>
     )
 }

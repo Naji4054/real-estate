@@ -41,9 +41,9 @@ import { NavLink } from "react-router-dom";
                 </ul>
             </div>
 
-            <div>
+            <div className="flex items-center">
                 <div>
-                    <img src="" alt="" />
+                    <img src="/images/user-icon.png" alt="user" />
                 </div>
                 <div>
                     <button className="border border-solid border-[#ff5a3c] text-[white] p-[11px_18px] bg-[#ff5a3c]">Add Listing</button>

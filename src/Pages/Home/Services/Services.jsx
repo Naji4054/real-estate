@@ -1,6 +1,9 @@
 import { ServiceData } from "../../../Data/data";
 import ServiceCard from "./ServiceCard";
-const Services =()=> {
+
+const Services = (props)=> {
+
+    console.log(props)
     return (
         <>
         <section>
@@ -11,7 +14,7 @@ const Services =()=> {
             <div  className="grid grid-cols-3 gap-11 shadow-[10px]">
                 {
                     ServiceData.map((item)=> <ServiceCard key={item.id} data={item}/>)
-                }
+                }             
             </div>
         </section>
         </>

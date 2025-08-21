@@ -1,0 +1,32 @@
+ export const LatestData =[
+    {
+        id:1,
+        image:"/images/apartment-1.png",
+        title:"apartment",
+    },
+    {
+        id:2,
+        image:"/images/apartment-1.png",
+        title:"office",
+    },
+    {
+        id:3,
+        image:"/images/apartment-1.png",
+        title:"condo",
+    },
+    {
+        id:4,
+        image:"/images/apartment-1.png",
+        title:"villa",
+    },
+    {
+        id:5,
+        image:"/images/apartment-1.png",
+        title:"house",
+    },
+    {
+        id:6,
+        image:"/images/apartment-1.png",
+        title:"family home",
+    }
+]
