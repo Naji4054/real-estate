@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
-import { ArrowLeftCircleIcon } from "@heroicons/react/24/outline";
-import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
+import { ArrowRightCircleIcon } from "@heroicons/react/24/solid";
 
 
 
@@ -37,9 +37,9 @@ function Carousel({ children }) {
       <Slider {...settings} ref={sliderRef}>
        {children}
       </Slider>
-      <div className="buttonGroup flex justify-between absolute w-full top-[42%] px-2">
-        <ArrowLeftCircleIcon className="w-10 h-10 text-[#ff5a3c]" onClick={handlePrev}/>
-        <ArrowRightCircleIcon className="w-10 h-10 text-[#ff5a3c]" onClick={handleNext}/>
+      <div className="relative">
+        <ArrowLeftCircleIcon className="w-10 h-10 text-[#ff5a3c] absolute top-[-251px] left-[-3%]" onClick={handlePrev}/>
+        <ArrowRightCircleIcon className="w-10 h-10 text-[#ff5a3c] absolute top-[-251px] right-[-3%]" onClick={handleNext}/>
       </div>
     </div>
   );

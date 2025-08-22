@@ -12,7 +12,7 @@ const LatestProperties = () => {
                 <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Our Services</h3>
                 <h1 className="text-[41px] font-semibold">Our Main Focus</h1>
             </div>
-            <div >
+            <div className='container mx-auto' >
                 <Carousel>
                 {
                     LatestData.map((item)=> <LatestCards key={item.id} data={item}/>)

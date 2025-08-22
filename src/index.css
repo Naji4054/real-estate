@@ -19,3 +19,12 @@
     bottom: auto !important;      /* resets bottom offset */
               /* optional: add spacing instead */
   }
+  .slick-slide {
+    padding: 0 9px; /* adjust spacing */
+  }
+  .account-bg-image {
+    background-image: url(../public/images/account-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 260px;
+  }

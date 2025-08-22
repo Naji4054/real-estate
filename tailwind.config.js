@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // backgroundImage: {
+      //   'account-bg': "url('/images/account-image.webp')", //  Adjust the path as needed
+      // },
     },
   },
   plugins: [],
