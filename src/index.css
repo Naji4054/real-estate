@@ -28,3 +28,6 @@
     background-repeat: no-repeat;
     min-height: 260px;
   }
+  .slick-list {
+    padding-bottom: 22px !important;
+  }

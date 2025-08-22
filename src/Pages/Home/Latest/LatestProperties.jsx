@@ -7,12 +7,12 @@ const LatestProperties = () => {
     
   return (
    <>
-    <section>
+    <section className='mb-[70px]'>
             <div className="flex flex-col justify-center items-center mb-[50px]">
-                <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Our Services</h3>
-                <h1 className="text-[41px] font-semibold">Our Main Focus</h1>
+                <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Featured Properties</h3>
+                <h1 className="text-[41px] font-semibold">Featured & Latest Properties</h1>
             </div>
-            <div className='container mx-auto' >
+            <div className='container mx-auto ' >
                 <Carousel>
                 {
                     LatestData.map((item)=> <LatestCards key={item.id} data={item}/>)
