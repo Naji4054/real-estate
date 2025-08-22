@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
  const Header = () => {
 
@@ -41,12 +41,15 @@ import { NavLink } from "react-router-dom";
                 </ul>
             </div>
 
-            <div className="flex items-center">
-                <div>
+            <div className="flex item gap-2">
+                {/* <div>
                     <img src="/images/user-icon.png" alt="user" />
+                </div> */}
+                <div>
+                    <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">Add Listing</button>
                 </div>
                 <div>
-                    <button className="border border-solid border-[#ff5a3c] text-[white] p-[11px_18px] bg-[#ff5a3c]">Add Listing</button>
+                   <Link to={'/login'} > <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">Register</button></Link>
                 </div>
             </div>
         </nav>
