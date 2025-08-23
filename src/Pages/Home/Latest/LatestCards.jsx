@@ -13,15 +13,15 @@ const LatestCards = (props) => {
             </div>
             <div className='flex justify-between pl-5 pr-5'>
               <div className='flex gap-[10px]'>
-                <img src="/images/bed-icon.png" alt="bedroom" />
+                <img src="/images/bed-icon.png" alt="bedroom" className='w-[15px] h-[23px]' />
                 <p>{NewProperties.bedroom}</p>
               </div>
               <div className='flex gap-[10px]'>
-                <img src="/images/shower-icon.png" alt="washroom" />
+                <img src="/images/shower-icon.png" alt="washroom" className='w-[15px] h-[19px]'/>
                 <p>{NewProperties.washroom}</p>
               </div>
-              <div className='flex'>
-                <img src="/images/area-icon.png" alt="area" />
+              <div className='flex gap-[8px]' >
+                <img src="/images/area-icon.png" alt="area"  className='w-[15px] h-[19px]'/>
                 <p>{NewProperties.area} Sq.Ft</p>
               </div>
               <div className='flex'>
