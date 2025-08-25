@@ -1,17 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from './Context/AuthContext';
+import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import Joi from 'joi'
 
 const Login = () => {
 
  const { loading, login } = useContext(AuthContext)
 
 
+ const schema = Joi.object({
+    email: Joi.string().email({ tlds: { allow: false } }).required().messages({
+        'string.empty': 'Email is required',
+        'string.email': 'Invalid email address',
+    }),
+    password: Joi.string().min(8).required().messages({
+        'string.empty': 'Password is required',
+        'string.min': 'Password must be at least 8 characters long',
+    }),
+});
 
 
   const [userData, setUserData] = useState({
     email: '',
     password: ''
   })
+
+  const [errors, setErrors] = useState({})
 
 
   const handleInputChange = (e) => {
@@ -23,9 +38,27 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const { error } = schema.validate(userData, { abortEarly: false });
+        console.log(error, 'errors')
+                
         
-        login(userData)
+        if (error) {
+            
+            const validationErrors = {};
+
+            error.details.forEach((detail) => {
+                validationErrors[detail.path[0]] = detail.message;
+            });
         
+            setErrors(validationErrors);
+            console.log(validationErrors); // Log the errors to see them
+            return;
+        } else {
+              login(userData)
+        }
+
+                
     }
 
   return (
@@ -53,9 +86,11 @@ const Login = () => {
                     <form onSubmit={handleSubmit}>
                         <div className='max-w-[500px] mb-5'>
                             <input type="email" placeholder='Email' name='email'  value ={userData.email}  onChange={handleInputChange}  className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1' />
+                            {errors.email && <p className="text-red-500">{errors.email}</p>}
                         </div>
                         <div className='max-w-[500px] mb-5'>
                             <input type="password" placeholder='Password' name='password' value ={userData.password}  onChange={handleInputChange} className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1'/>
+                            {errors.password && <p className="text-red-500">{errors.password}</p>}
                         </div>
                         <div className=' mb-5'>
                         <button type='submit' className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">{loading ? 'Loading...' : 'LOGIN'}</button>
@@ -73,7 +108,7 @@ const Login = () => {
                             check out more quickly track your orders register</p>
                         </div>
                         <div >
-                            <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">CREATE ACCOUNT</button>
+                            <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]"><Link to={'/signup'}>CREATE ACCOUNT</Link></button>
                         </div>
                 </div>
                 </div>

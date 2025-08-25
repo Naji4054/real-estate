@@ -56,7 +56,7 @@ import { AuthContext } from "../../../Pages/Context/AuthContext";
                                   </div>)
                 }
                 {
-                    isLoggedIn && <button onClick={logout}>Logout</button>
+                    isLoggedIn && <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]" onClick={logout}>LOGOUT</button>
                 }
             </div>
         </nav>
