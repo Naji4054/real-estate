@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Pages/Context/AuthContext";
 
  const Header = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const { isLoggedIn, logout } = useContext(AuthContext)
 
     return (
         <>
@@ -46,11 +48,16 @@ import { Link, NavLink } from "react-router-dom";
                     <img src="/images/user-icon.png" alt="user" />
                 </div> */}
                 <div>
-                    <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">Add Listing</button>
+                    <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">ADD LISTING</button>
                 </div>
-                <div>
-                   <Link to={'/login'} > <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">Register</button></Link>
-                </div>
+                {
+                    !isLoggedIn && (<div>
+                                        <Link to={'/login'} > <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">LOGIN</button></Link>
+                                  </div>)
+                }
+                {
+                    isLoggedIn && <button onClick={logout}>Logout</button>
+                }
             </div>
         </nav>
         </>

@@ -1,15 +1,38 @@
-import React from 'react'
-import { UserIcon } from "@heroicons/react/24/solid";
-import {LockClosedIcon } from "@heroicons/react/24/solid";
-
-
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from './Context/AuthContext';
 
 const Login = () => {
+
+ const { loading, login } = useContext(AuthContext)
+
+
+
+
+  const [userData, setUserData] = useState({
+    email: '',
+    password: ''
+  })
+
+
+  const handleInputChange = (e) => {
+
+    const { value, name } = e.target
+
+    setUserData(prev=> ({...prev, [name]: value }))
+  }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        login(userData)
+        
+    }
+
   return (
 
     <>
     <section >
-    <div className="account-bg-image mb-24">
+        <div className="account-bg-image mb-24">
 
             <div className='container mx-auto'>
                 <div>
@@ -27,15 +50,15 @@ const Login = () => {
             </div>
             <div className='  grid grid-cols-2 gap-10'>
                 <div>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className='max-w-[500px] mb-5'>
-                            <input type="email" placeholder='Email' className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1' />
+                            <input type="email" placeholder='Email' name='email'  value ={userData.email}  onChange={handleInputChange}  className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1' />
                         </div>
                         <div className='max-w-[500px] mb-5'>
-                            <input type="text" placeholder='Password' className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1'/>
+                            <input type="password" placeholder='Password' name='password' value ={userData.password}  onChange={handleInputChange} className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1'/>
                         </div>
                         <div className=' mb-5'>
-                        <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">LOGIN</button>
+                        <button type='submit' className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">{loading ? 'Loading...' : 'LOGIN'}</button>
                         </div>
                         <div>
                             <a href="#">FORGOT YOUR PASSWORD?</a>

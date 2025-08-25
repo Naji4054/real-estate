@@ -8,13 +8,15 @@ import reportWebVitals from './reportWebVitals';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SmoothScrolling from './Components/ui/ScrollSmooth';
+import { AuthProvider } from './Pages/Context/AuthContext';
+import Header from './Components/Layout/Header/Header';
+import { BrowserRouter, Routes } from 'react-router-dom';
+import Footer from './Components/Layout/Footer/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <SmoothScrolling>
     <App />
-  </SmoothScrolling>
   </React.StrictMode>
 );
 
