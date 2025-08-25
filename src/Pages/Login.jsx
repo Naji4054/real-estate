@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Joi from 'joi'
 
+
+//login function
+
 const Login = () => {
 
- const { loading, login } = useContext(AuthContext)
+ const { loading, login } = useContext(AuthContext) //call from context
 
+// joi library for validation 
 
  const schema = Joi.object({
-    email: Joi.string().email({ tlds: { allow: false } }).required().messages({
+    email: Joi.string().email({ tlds: { allow: false } }).required().messages({  //create validateion in schema 
         'string.empty': 'Email is required',
         'string.email': 'Invalid email address',
     }),
@@ -20,26 +24,30 @@ const Login = () => {
     }),
 });
 
+//manage state for input and password field
 
   const [userData, setUserData] = useState({
     email: '',
     password: ''
   })
+//manage state for errors
 
   const [errors, setErrors] = useState({})
 
+//handle input field -- add data 
 
   const handleInputChange = (e) => {
 
-    const { value, name } = e.target
+    const { value, name } = e.target // target the respected field with the value
 
-    setUserData(prev=> ({...prev, [name]: value }))
+    setUserData(prev=> ({...prev, [name]: value })) // keep the previous data of name and value and add new name and value along with it 
   }
+// login on submit
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const { error } = schema.validate(userData, { abortEarly: false });
+    const handleSubmit = async (e) => { 
+        e.preventDefault(); 
+// if validation fails input passes to error and is handled by joi 
+        const { error } = schema.validate(userData, { abortEarly: false }); // validate schema for userdata
         console.log(error, 'errors')
                 
         
@@ -49,7 +57,7 @@ const Login = () => {
 
             error.details.forEach((detail) => {
                 validationErrors[detail.path[0]] = detail.message;
-            });
+            }); // map the  details object (message: "Email is required", path: ["email"], type: "string.empty")to the respective  key and  value is thier respective error message 
         
             setErrors(validationErrors);
             console.log(validationErrors); // Log the errors to see them
