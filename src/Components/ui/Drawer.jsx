@@ -3,13 +3,10 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import MailIcon from '@mui/icons-material/Mail';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
@@ -46,114 +43,142 @@ const handleListClick = ()=> {
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={(event) => event.stopPropagation()}>
-      
-      <ListItemButton onClick={handleListClick} >
-        <ListItemIcon>
-        <DashboardIcon />
-        </ListItemIcon>
-        <ListItemText primary="Dashboard" />
-        {openList ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={openList} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <AutoGraphIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Analytics" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <ReviewsIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Review" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <InventoryIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Orders" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <GroupIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Customers" />
-          </ListItemButton>
-        </List>
-      </Collapse>
-      <ListItemButton onClick={handleListClick} >
-        <ListItemIcon>
-          < RealEstateAgentIcon/>
-        </ListItemIcon>
-        <ListItemText primary="Agents" />
-        {openList ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={openList} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <GroupsIcon />
-            </ListItemIcon>
-            <ListItemText primary="All Agents" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <PersonAddIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Add Agents" />
-          </ListItemButton>
-        </List>
-      </Collapse>
-      <ListItemButton onClick={handleListClick} >
-        <ListItemIcon>
-          < HomeWorkIcon/>
-        </ListItemIcon>
-        <ListItemText primary="Property" />
-        {openList ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={openList} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <ApartmentIcon  />
-            </ListItemIcon>
-            <ListItemText primary="Current Properties" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <AddHomeIcon/>
-            </ListItemIcon>
-            <ListItemText primary=" Add New Property" />
-          </ListItemButton>
-        </List>
-      </Collapse>
+
+        <ListItemButton onClick={handleListClick} >
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+          {openList ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+
+        <Collapse in={openList} timeout="auto" unmountOnExit>
+
+          <List component="div" disablePadding>
+
+              <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <AutoGraphIcon sx={{ fontSize:'1rem' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Analytics"  sx={{fontSize:'rem'}}/>
+              </ListItemButton>
+
+              <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <ReviewsIcon sx={{ fontSize:'1rem' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Review" />
+              </ListItemButton>
+
+              <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <InventoryIcon sx={{ fontSize:'1rem' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Orders" />
+              </ListItemButton>
+
+              <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <GroupIcon sx={{ fontSize:'1rem' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Customers" />
+              </ListItemButton>
+
+           </List>
+
+        </Collapse>
+
+        <ListItemButton onClick={handleListClick} >
+          <ListItemIcon>
+            < RealEstateAgentIcon/>
+          </ListItemIcon>
+          <ListItemText primary="Agents" />
+          {openList ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+
+        <Collapse in={openList} timeout="auto" unmountOnExit>
+
+          <List component="div" disablePadding>
+
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <GroupsIcon sx={{ fontSize:'1rem' }} />
+              </ListItemIcon>
+              <ListItemText primary="All Agents" />
+            </ListItemButton>
+
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PersonAddIcon sx={{ fontSize:'1rem' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Add Agents" />
+            </ListItemButton>
+
+          </List>
+        </Collapse>
+        
+        <ListItemButton onClick={handleListClick} >
+          <ListItemIcon>
+            < HomeWorkIcon/>
+          </ListItemIcon>
+          <ListItemText primary="Property" />
+          {openList ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+
+        <Collapse in={openList} timeout="auto" unmountOnExit>
+
+          <List component="div" disablePadding>
+
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <ApartmentIcon  sx={{ fontSize:'1rem' }} />
+              </ListItemIcon>
+              <ListItemText primary="Current Properties" />
+            </ListItemButton>
+
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <AddHomeIcon sx={{ fontSize:'1rem' }}/>
+              </ListItemIcon>
+              <ListItemText primary=" Add New Property" />
+            </ListItemButton>
+
+          </List>
+
+        </Collapse>
 
       <Divider />
 
-      <ListItemButton onClick={handleListClick} >
-        <ListItemIcon>
-          < PersonIcon/>
-        </ListItemIcon>
-        <ListItemText primary="Users" />
-        {openList ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={openList} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <ListIcon />
-            </ListItemIcon>
-            <ListItemText primary="List" />
-          </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <AddIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Add" />
-          </ListItemButton>
-        </List>
-      </Collapse>
+            <ListItemButton onClick={handleListClick} >
+              <ListItemIcon>
+                < PersonIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Users" />
+              {openList ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+
+        <Collapse in={openList} timeout="auto" unmountOnExit>
+
+          <List component="div" disablePadding>
+
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <ListIcon sx={{ fontSize:'1rem' }} />
+              </ListItemIcon>
+              <ListItemText primary="List" />
+            </ListItemButton>
+
+            <ListItemButton sx={{ pl: 4}}>
+              <ListItemIcon>
+                <AddIcon sx={{ fontSize:'1rem' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Add" />
+            </ListItemButton>
+
+          </List>
+
+        </Collapse>
+
     </Box>
   );
 
