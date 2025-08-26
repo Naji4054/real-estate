@@ -14,7 +14,7 @@ function Carousel({ children }) {
     slidesToScroll: 1,
     arrow: false,
     autoplay: true,        // enable autoplay
-    autoplaySpeed: 2800,   // 2 seconds per slide
+    autoplaySpeed: 2000,   // 2 seconds per slide
     pauseOnHover: true 
   };
 

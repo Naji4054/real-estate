@@ -30,7 +30,7 @@ const AuthProvider = ({children}) => {
         .then(res => {
             setSession('access_token', res.data.token)
             setSession('user_data', res.data.data)
-            navigator('/login')
+            navigator('/')
         })
         .catch(err=> {
             toast.error(err.response.data.message)

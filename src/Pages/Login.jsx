@@ -93,12 +93,13 @@ const Login = () => {
                 <div>
                     <form onSubmit={handleSubmit}>
                         <div className='max-w-[500px] mb-5'>
-                            <input type="email" placeholder='Email' name='email'  value ={userData.email}  onChange={handleInputChange}  className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1' />
+                            <input type="email" placeholder='Email *' name='email'  value ={userData.email}  onChange={handleInputChange}  className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1 ' />
                             {errors.email && <p className="text-red-500">{errors.email}</p>}
                         </div>
                         <div className='max-w-[500px] mb-5'>
-                            <input type="password" placeholder='Password' name='password' value ={userData.password}  onChange={handleInputChange} className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1'/>
-                            {errors.password && <p className="text-red-500">{errors.password}</p>}
+                            <input type="password" placeholder='Password *' name='password' value ={userData.password}  onChange={handleInputChange} className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1'/>
+                            {errors.password && <p className="text-red-500">{errors.password}</p>}  
+                            {/* if errors.password is true then errors.password is true */}
                         </div>
                         <div className=' mb-5'>
                         <button type='submit' className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">{loading ? 'Loading...' : 'LOGIN'}</button>

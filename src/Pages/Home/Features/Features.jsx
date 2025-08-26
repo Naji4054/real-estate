@@ -7,7 +7,7 @@ const   Features = (props)=> {
     return (
         <>
         <section className="mb-[80px]">
-            <div  className="grid grid-cols-4">
+            <div  className=" container mx-auto grid grid-cols-4">
                 {
                     FeatureData.map((item)=> <FeaturedCard key={item.id} data={item}/>)
                 }             

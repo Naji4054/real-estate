@@ -72,6 +72,7 @@ const SignUp = () => {
             return;
         } else {
             signup(payload)
+            
         }
 
       }
@@ -96,35 +97,35 @@ const SignUp = () => {
         <div className=' max-w-[600px] mx-auto'>
             <form onSubmit={handleSubmit}>
                 <div className='max-w-[600px] mb-9'>
-                    <input type="text" placeholder='First Name' name='firstName' value = {userData.firstName} onChange={handleInput}   className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1' />
+                    <input type="text" placeholder='First Name *' name='firstName' value = {userData.firstName} onChange={handleInput}   className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1' />
                     {errors.firstName && <p className="text-red-500">{errors.firstName}</p>}
                 </div>
                 <div className='max-w-[600px] mb-9'>
-                    <input type="text" placeholder='Last Name' name='lastName' value = {userData.lastName}  onChange={handleInput} className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1'/>
+                    <input type="text" placeholder='Last Name *' name='lastName' value = {userData.lastName}  onChange={handleInput} className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1'/>
                     {errors.lastName && <p className="text-red-500">{errors.lastName}</p>}
                 </div>
                 <div className='max-w-[600px] mb-9'>
-                    <input type="email" placeholder='Email' name='email' value = {userData.email} onChange={handleInput}   className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1' />
+                    <input type="email" placeholder='Email *' name='email' value = {userData.email} onChange={handleInput}   className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1' />
                     {errors.email && <p className="text-red-500">{errors.email}</p>}
                 </div>
                 <div className='max-w-[600px] mb-9'>
-                    <input type="password" placeholder='Password' name='password' value = {userData.password} onChange={handleInput}  className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1'/>
+                    <input type="password" placeholder='Password *' name='password' value = {userData.password} onChange={handleInput}  className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1'/>
                     {errors.password && <p className="text-red-500">{errors.password}</p>}
                 </div>
                 <div className='max-w-[600px] mb-9'>
-                    <input type="password" placeholder='Confirm Password' name='confirmPassword' value = {userData.confirmPassword} onChange={handleInput}   className='w-full min-h-[50px] border border-solid border-[#c4c5c6] placeholder:text-[gray] px-2 py-1' />
+                    <input type="password" placeholder='Confirm Password *' name='confirmPassword' value = {userData.confirmPassword} onChange={handleInput}   className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1' />
                     {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword}</p>}
                 </div>
                 <div className=' text-[#6a6767] max-w-[600px] mb-9 flex justify-center items-center gap-[10px]'>
                     <input type="checkbox" name='consentA' />
                     <label htmlFor="box-1">I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.</label>
                 </div>
-                <div className=' text-[#6a6767] gap-[10px] max-w-[600px] mb-8 flex items-center'>
+                <div className=' text-[#6a6767] gap-[10px] max-w-[600px]mb-1 flex items-center'>
                     <input type="checkbox" name='consentB'checked ={userData.consentB} onChange = {(e) => setUserData(prev => ({...prev , consentB:e.target.checked}))} />
-                    <label htmlFor="box-2">By clicking create account, I consent to the privacy policy.</label>
-                    {errors.consentB && <p className="text-red-500">{errors.consentB}</p>}
+                    <label htmlFor="box-2">By clicking create account, I consent to the privacy policy *.</label>
                 </div>
-                <div className='max-w-[600px]'>
+                    {errors.consentB && <p className="text-red-500  mb-8">{errors.consentB}</p>}
+                <div className='max-w-[600px] mt-8'>
                     <button  className=" w-full border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]" type = "submit">Sign Up & Continue</button>
                 </div>
             </form>
