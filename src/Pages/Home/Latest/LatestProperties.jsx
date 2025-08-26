@@ -1,7 +1,7 @@
 import React from 'react'
 import { LatestData } from '../../../Data/latest'
 import LatestCards from './LatestCards'
-import Carousel from '../../../Components/Carousel'
+import Carousel from '../../../Components/ui/Carousel'
 
 const LatestProperties = () => {
     

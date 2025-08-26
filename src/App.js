@@ -7,22 +7,26 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from './Pages/About/About';
 import Login from './Pages/Login';
 import { AuthProvider } from './Pages/Context/AuthContext';
-import SignUp from './Pages/Context/SignUp';
+import SignUp from './Pages/SignUp';
 import { Toaster } from 'react-hot-toast'
+import AdminDashboard from './Pages/Admin/AdminDashboard';
+import MainHeader from './Components/Layout/Header/MainHeader';
+import MainFooter from './Components/Layout/Footer/MainFooter';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <AuthProvider>
-          <Header/>
+          <MainHeader/>
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/about' element={<About/>}/>
               <Route path='/login' element={<Login/>}/>
               <Route path='/signup' element={<SignUp/>}/>
+              <Route path='/admin' element={<AdminDashboard/>}/>
             </Routes>
-          <Footer/>
+          <MainFooter/>
           <Toaster/>
         </AuthProvider>
       </BrowserRouter>
