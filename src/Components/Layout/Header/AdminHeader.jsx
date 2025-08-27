@@ -10,24 +10,24 @@ import TemporaryDrawer from '../../ui/Drawer';
 
 export default function AdminHeader() {
 
-  const [openDrawer, setOpenDrawer] = React.useState(false)
+  const [openDrawer, setOpenDrawer] = React.useState(false) //drawer initially set to false  {false -> closed} 
 
   const handleClick = () => {
-    setOpenDrawer(prev=> !prev)
+    setOpenDrawer(prev=> !prev) //A toggle function  if the drawer is closed, it opens; if it’s open, it closes.
   }  
 
   return (
    <>
     <Box sx={{ flexGrow: 1,  }}>
-      <AppBar position="static" sx={{ background: 'red' }}>
+      <AppBar position="static" sx={{ background: 'grey' }}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={handleClick}
+            sx={{ mr: 2 }}        
+            onClick={handleClick} // toggles drawer on clicking the menu button ...when menu button is clicked handle click is invoked and openDrawer is updated to true by setopendrawer
           >
             <MenuIcon />
           </IconButton>
@@ -39,7 +39,8 @@ export default function AdminHeader() {
       </AppBar>
     </Box>
 
-    <TemporaryDrawer open={openDrawer} toggleDrawer={handleClick}/>
+    <TemporaryDrawer open={openDrawer} toggleDrawer={handleClick}/> 
+     {/* store the result ,(the updated value whwn  the menu button is clicked ie. openDrawer)  in prop called open ... and handleclick is passed to toggleDrawer prop */}
    </>
   );
 }

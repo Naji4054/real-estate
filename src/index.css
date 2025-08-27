@@ -31,3 +31,7 @@
   .slick-list {
     padding-bottom: 22px !important;
   }
+
+  .css-abfpao-JoyLinearProgress-root::before {
+    background-color: white !important;
+  }

@@ -24,7 +24,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import AddHomeIcon from '@mui/icons-material/AddHome';
 
-export default function TemporaryDrawer({ open, toggleDrawer }) {
+export default function TemporaryDrawer({ open, toggleDrawer }) {  // passed open and toggledrawer from adminheader
 
 //   const [open, setOpen] = React.useState(false);
 
@@ -34,25 +34,25 @@ export default function TemporaryDrawer({ open, toggleDrawer }) {
 
 
 
-const [openList, setOpenList] = React.useState(false)
+const [openDashboard, setOpenDashboard] = React.useState(false)
+const [openAgents, setOpenAgents] = React.useState(false)
+const [openProperty, setOpenProperty] = React.useState(false)
+const [openUsers, setOpenUsers] = React.useState(false)
 
-const handleListClick = ()=> {
 
-  setOpenList(prev=> !prev)
-}
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={(event) => event.stopPropagation()}>
 
-        <ListItemButton onClick={handleListClick} >
+        <ListItemButton onClick= {()=>setOpenDashboard(prev => !prev)} >
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
-          {openList ? <ExpandLess /> : <ExpandMore />}
+          {openDashboard ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
-        <Collapse in={openList} timeout="auto" unmountOnExit>
+        <Collapse in={openDashboard} timeout="auto" unmountOnExit>
 
           <List component="div" disablePadding>
 
@@ -88,15 +88,15 @@ const handleListClick = ()=> {
 
         </Collapse>
 
-        <ListItemButton onClick={handleListClick} >
+        <ListItemButton onClick={()=>setOpenAgents(prev => !prev)} >
           <ListItemIcon>
             < RealEstateAgentIcon/>
           </ListItemIcon>
           <ListItemText primary="Agents" />
-          {openList ? <ExpandLess /> : <ExpandMore />}
+          {openAgents? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
-        <Collapse in={openList} timeout="auto" unmountOnExit>
+        <Collapse in={openAgents} timeout="auto" unmountOnExit>
 
           <List component="div" disablePadding>
 
@@ -117,15 +117,15 @@ const handleListClick = ()=> {
           </List>
         </Collapse>
         
-        <ListItemButton onClick={handleListClick} >
+        <ListItemButton onClick={()=>setOpenProperty(prev=>!prev)} >
           <ListItemIcon>
             < HomeWorkIcon/>
           </ListItemIcon>
           <ListItemText primary="Property" />
-          {openList ? <ExpandLess /> : <ExpandMore />}
+          {openProperty ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
-        <Collapse in={openList} timeout="auto" unmountOnExit>
+        <Collapse in={openProperty} timeout="auto" unmountOnExit>
 
           <List component="div" disablePadding>
 
@@ -149,15 +149,15 @@ const handleListClick = ()=> {
 
       <Divider />
 
-            <ListItemButton onClick={handleListClick} >
+            <ListItemButton onClick={()=>setOpenUsers(prev=>!prev)} >
               <ListItemIcon>
                 < PersonIcon/>
               </ListItemIcon>
               <ListItemText primary="Users" />
-              {openList ? <ExpandLess /> : <ExpandMore />}
+              {openUsers? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
 
-        <Collapse in={openList} timeout="auto" unmountOnExit>
+        <Collapse in={openUsers} timeout="auto" unmountOnExit>
 
           <List component="div" disablePadding>
 
