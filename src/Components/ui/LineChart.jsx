@@ -17,7 +17,5 @@ const LineChart = ({ state, type }) => {
     );
   }
 
-//   const domContainer = document.querySelector('#app');
-//   ReactDOM.render(<ApexChart />, domContainer);
 
   export default LineChart

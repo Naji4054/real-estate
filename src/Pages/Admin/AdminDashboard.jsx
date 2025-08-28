@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactApexChart from 'apexcharts'
 import LineChart from '../../Components/ui/LineChart'
+import { BuildingStorefrontIcon } from '@heroicons/react/24/outline';
 
 
 
@@ -59,7 +60,7 @@ const AdminDashboard = () => {
       
     series: [{
         name: "Desktops",
-        data: [500, 380, 650],
+        data: [120, 350, 110, 200,450,250,190],
         
     }],
     options: {
@@ -89,7 +90,7 @@ const AdminDashboard = () => {
       //   },
       // },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
         labels: {
           show: false
         }
@@ -116,6 +117,28 @@ const AdminDashboard = () => {
         <div className='flex justify-between'>
           <p className='text-[18px] font-bold py-[12px] px-[17px]'>175k</p>
           <p className='text-[13px] text-[#ff5a3c] py-[12px] px-[17px]'>-16.2%</p>
+        </div>
+      </div>
+      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] py-[12px] px-[17px] ">
+        <div className='max-w-[25px] min-h-[25px]'>
+         <BuildingStorefrontIcon/>
+        </div>
+          <h1 className='text-[16px] font-semibold '>Total Profit</h1>
+          <p className='text-[14px] text-[#6a6767]'>Last week</p>
+          <p className='text-[14px] '>1.28k</p>
+        <div>
+          <p className='text-[13px] text-[#ff5a3c] '>-16.2%</p>
+        </div>
+      </div>
+      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] py-[12px] px-[17px] ">
+        <div className='max-w-[25px] min-h-[25px]'>
+         <BuildingStorefrontIcon/>
+        </div>
+          <h1 className='text-[16px] font-semibold '>Total Profit</h1>
+          <p className='text-[14px] text-[#6a6767]'>Last week</p>
+          <p className='text-[14px] '>1.28k</p>
+        <div>
+          <p className='text-[13px] text-[#ff5a3c] '>-16.2%</p>
         </div>
       </div>
       <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] ">

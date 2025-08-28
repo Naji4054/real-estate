@@ -12,6 +12,7 @@ import { Toaster } from 'react-hot-toast'
 import AdminDashboard from './Pages/Admin/AdminDashboard';
 import MainHeader from './Components/Layout/Header/MainHeader';
 import MainFooter from './Components/Layout/Footer/MainFooter';
+import ManageUsers from './Pages/Admin/ManageUsers';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path='/login' element={<Login/>}/>
               <Route path='/signup' element={<SignUp/>}/>
               <Route path='/admin' element={<AdminDashboard/>}/>
+              <Route path='/admin/users' element={<ManageUsers/>}/>
             </Routes>
           <MainFooter/>
           <Toaster/>
