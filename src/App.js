@@ -13,22 +13,28 @@ import AdminDashboard from './Pages/Admin/AdminDashboard';
 import MainHeader from './Components/Layout/Header/MainHeader';
 import MainFooter from './Components/Layout/Footer/MainFooter';
 import ManageUsers from './Pages/Admin/ManageUsers';
+import UserLayout from './Components/Layout/UserLayout';
+import AdminLayout from './Components/Layout/AdminLayout';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <AuthProvider>
-          <MainHeader/>
             <Routes>
-              <Route path='/' element={<Home/>}/>
-              <Route path='/about' element={<About/>}/>
-              <Route path='/login' element={<Login/>}/>
-              <Route path='/signup' element={<SignUp/>}/>
-              <Route path='/admin' element={<AdminDashboard/>}/>
-              <Route path='/admin/users' element={<ManageUsers/>}/>
+              <Route element={<UserLayout/>}>
+                <Route index path='/' element={<Home/>}/>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/signup' element={<SignUp/>}/>              
+                <Route path='/about' element={<About/>}/>
+              </Route>
+              
+
+              <Route element={<AdminLayout/>}>
+                <Route path='/admin' element={<AdminDashboard/>}/>
+                <Route path='/admin/users' element={<ManageUsers/>}/>
+              </Route>
             </Routes>
-          <MainFooter/>
           <Toaster/>
         </AuthProvider>
       </BrowserRouter>

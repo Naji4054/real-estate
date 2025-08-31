@@ -18,7 +18,7 @@ export default function AdminHeader() {
 
   return (
    <>
-    <Box sx={{ flexGrow: 1,  }}>
+    <Box sx={{ flexGrow: 1, marginBottom:'40px' }}>
       <AppBar position="static" sx={{ background: 'grey' }}>
         <Toolbar>
           <IconButton

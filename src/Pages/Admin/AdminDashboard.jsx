@@ -107,51 +107,63 @@ const AdminDashboard = () => {
 });
 
   return (
-    <div>
-      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] ">
-        <h1 className='text-[16px] font-semibold py-[12px] px-[17px]'>Sales</h1>
-        <p className='text-[14px] text-[#6a6767]py-[12px] px-[17px]'>Last year</p>
+    <div className=' container mx-auto grid grid-cols-4 gap-[20px]'>
+      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] grid-custom">
+        <div>
+          <h1 className='text-[18px] font-semibold '>Sales</h1>
+          <p className='text-[14px] text-[#6a6767]'>Last year</p>
+        </div>
         <div className='w-full'>
         <LineChart state={chartData} type='area'/>
         </div>
         <div className='flex justify-between'>
-          <p className='text-[18px] font-bold py-[12px] px-[17px]'>175k</p>
-          <p className='text-[13px] text-[#ff5a3c] py-[12px] px-[17px]'>-16.2%</p>
+          <p className='text-[18px] font-bold '>175k</p>
+          <p className='text-[13px] text-[#ff5a3c] '>-16.2%</p>
         </div>
       </div>
-      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] py-[12px] px-[17px] ">
-        <div className='max-w-[25px] min-h-[25px]'>
+
+      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] grid-custom ">
+        <div className='max-w-[36px] min-h-[25px]'>
          <BuildingStorefrontIcon/>
         </div>
-          <h1 className='text-[16px] font-semibold '>Total Profit</h1>
+        <div className='place-content-center'>
+          <h1 className='text-[18px] font-semibold '>Total Profit</h1>
           <p className='text-[14px] text-[#6a6767]'>Last week</p>
           <p className='text-[14px] '>1.28k</p>
+        </div>
         <div>
           <p className='text-[13px] text-[#ff5a3c] '>-16.2%</p>
         </div>
       </div>
-      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] py-[12px] px-[17px] ">
-        <div className='max-w-[25px] min-h-[25px]'>
+
+      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke]  grid-custom">
+        <div className='max-w-[36px] min-h-[25px]'>
          <BuildingStorefrontIcon/>
         </div>
-          <h1 className='text-[16px] font-semibold '>Total Profit</h1>
+        <div className='place-content-center'>
+          <h1 className='text-[18px] font-semibold '>Total Profit</h1>
           <p className='text-[14px] text-[#6a6767]'>Last week</p>
           <p className='text-[14px] '>1.28k</p>
+        </div>
         <div>
           <p className='text-[13px] text-[#ff5a3c] '>-16.2%</p>
         </div>
       </div>
-      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] ">
-        <h1 className='text-[16px] font-semibold py-[12px] px-[17px]'>Sales</h1>
-        <p className='text-[14px] text-[#6a6767]py-[12px] px-[17px]'>Last year</p>
+
+      <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] grid-custom">
+        <div>
+          <h1 className='text-[18px] font-semibold '>Sales</h1>
+          <p className='text-[14px] text-[#6a6767]'>Last year</p>
+        </div>
         <div className='w-full'>
         <LineChart state={barData} type='bar'/>
         </div>
         <div className='flex justify-between'>
-          <p className='text-[18px] font-bold py-[12px] px-[17px]'>175k</p>
-          <p className='text-[13px] text-[#ff5a3c] py-[12px] px-[17px]'>-16.2%</p>
+          <p className='text-[18px] font-bold '>175k</p>
+          <p className='text-[13px] text-[#ff5a3c] '>-16.2%</p>
         </div>
       </div>
+
     </div>
   )
 }

@@ -35,3 +35,10 @@
   .css-abfpao-JoyLinearProgress-root::before {
     background-color: white !important;
   }
+
+
+
+  .grid-custom {
+    display: grid;
+    grid-template-rows: 40px 130px 30px;
+  }
