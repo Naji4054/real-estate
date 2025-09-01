@@ -10,8 +10,6 @@ import { AuthProvider } from './Pages/Context/AuthContext';
 import SignUp from './Pages/SignUp';
 import { Toaster } from 'react-hot-toast'
 import AdminDashboard from './Pages/Admin/AdminDashboard';
-import MainHeader from './Components/Layout/Header/MainHeader';
-import MainFooter from './Components/Layout/Footer/MainFooter';
 import ManageUsers from './Pages/Admin/ManageUsers';
 import UserLayout from './Components/Layout/UserLayout';
 import AdminLayout from './Components/Layout/AdminLayout';
