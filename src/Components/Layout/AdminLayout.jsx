@@ -24,6 +24,7 @@ import { adminNavigation } from '../../Utils/navigation';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
+import RealEstateAgentIcon from '@mui/icons-material/RealEstateAgent';
 
 const drawerWidth = 240;
 
@@ -119,10 +120,23 @@ export default function MiniDrawer() {
 
   const icons = {
     dashboard: <MenuIcon/>,
-    property: < PersonAddIcon/>,
-    orders: < PersonAddIcon/>,
+
+    property: < RealEstateAgentIcon/>,
     propertyAdd:  <MenuIcon/>,
     propertyList:  <MenuIcon/>,
+
+    orders: < PersonAddIcon/>,
+    orderManage:  <MenuIcon/>,
+    orderList:  <MenuIcon/>,
+
+    agents: < PersonAddIcon/>,
+    agentAdd:  <MenuIcon/>,
+    agentList:  <MenuIcon/>,
+
+    users: < PersonAddIcon/>,
+    userAdd:  <MenuIcon/>,
+    userList:  <MenuIcon/>,
+    
   }
 
   const [openSubMenu,setOpenSubMenu] = React.useState({});
@@ -239,12 +253,12 @@ export default function MiniDrawer() {
 
                         <List component="div" disablePadding>
                             {
-                                navItem.children.map((item, index)=> (
+                                navItem.children.map((subMenuItem, index)=> (
                                     <ListItemButton sx={{ pl: 4 }} key={index}>
                                         <ListItemIcon>
-                                            { icons[item.icon]}
+                                            { icons[subMenuItem.icon]}
                                         </ListItemIcon>
-                                        <ListItemText primary={item.name} />
+                                        <ListItemText primary={subMenuItem.name} />
                                     </ListItemButton>
                                 ))
                             }

@@ -10,12 +10,12 @@ export const adminNavigation = [
         pathname: '#',
         children: [
             {
-                name: 'list',
+                name: 'All Property',
                 icon: 'propertyList',
                 pathname: '/admin/property'
             },
             {
-                name: 'add',
+                name: 'Add Property',
                 icon: 'propertyAdd',
                 pathname: '/admin/property/add'
             },
@@ -27,13 +27,47 @@ export const adminNavigation = [
         pathname: '#',
         children: [
             {
-                name: 'list',
-                icon: 'propertyList',
+                name: 'List Orders',
+                icon: 'orderList',
                 pathname: '/admin/property'
             },
             {
-                name: 'add',
-                icon: 'propertyAdd',
+                name: 'Manage Orders',
+                icon: 'orderManage',
+                pathname: '/admin/property/add'
+            },
+        ]
+    },
+    {
+        name: 'Agents',
+        icon: 'agents',
+        pathname: '#',
+        children: [
+            {
+                name: 'Manage Agents',
+                icon: 'agentList',
+                pathname: '/admin/property'
+            },
+            {
+                name: 'Add Agents',
+                icon: 'agentAdd',
+                pathname: '/admin/property/add'
+            },
+        ]
+    },
+    {
+        name: 'Users',
+        icon: 'users',
+        pathname: '#',
+        children: [
+            {
+                name: 'Manage Users',
+                icon: 'userList',
+                pathname: '/admin/property'
+            },
+            {
+                name: 'Add Users',
+                icon: 'userAdd',
                 pathname: '/admin/property/add'
             },
         ]
