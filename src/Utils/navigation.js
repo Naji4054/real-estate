@@ -13,7 +13,7 @@ export const adminNavigation = [
             {
                 name: 'All Property',
                 icon: 'propertyList',
-                pathname: '/admin/property'
+                pathname: '/admin/all-property'
             },
             {
                 name: 'Add Property',

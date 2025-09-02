@@ -155,7 +155,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
+  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, handleSearch } =
     props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -211,7 +211,7 @@ EnhancedTableHead.propTypes = {
 };
 
 function EnhancedTableToolbar(props) {
-  const { numSelected } = props;
+  const { numSelected , handleSearch} = props;
   // form for adding new user
 
   const [open, setOpen] = React.useState(false);
@@ -270,6 +270,7 @@ function EnhancedTableToolbar(props) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={(e)=> handleSearch(e.target.value)}
             />
       </Search>
 
@@ -360,18 +361,33 @@ export default function EnhancedTable() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
+  
+  const [searchKey, setSearchKey] = React.useState('')
+
+  const handleSearch= (val)=> {
+    console.log(val, 'ee')
+    setSearchKey(val.toLowerCase())
+  }
+
   const visibleRows = React.useMemo(
-    () =>
-      [...rows]
-        .sort(getComparator(order, orderBy))
-        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [order, orderBy, page, rowsPerPage],
+    () => {
+
+      let tableData = rows
+      if (searchKey) {
+        tableData.filter(item=> item.firstName.includes(searchKey))
+      } 
+
+      tableData.sort(getComparator(order, orderBy))
+      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+
+      return tableData
+    }, [order, orderBy, page, rowsPerPage, searchKey ],
   );
 
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} handleSearch={handleSearch} />
         <TableContainer>
         
           <Table

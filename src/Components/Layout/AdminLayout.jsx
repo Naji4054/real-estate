@@ -481,12 +481,14 @@ export default function MiniDrawer() {
                         <List component="div" disablePadding>
                             {
                                 navItem.children.map((subMenuItem, index)=> (
-                                    <ListItemButton sx={{ pl: 4 }} key={index} href={subMenuItem.pathname}>
-                                        <ListItemIcon>
-                                            { icons[subMenuItem.icon]}
-                                        </ListItemIcon>
-                                        <ListItemText primary={subMenuItem.name} />
+                                       <Link key={index} to ={subMenuItem.pathname}>
+                                    <ListItemButton sx={{ pl: 4 }} key={index} >
+                                             <ListItemIcon>
+                                                { icons[subMenuItem.icon]}
+                                            </ListItemIcon>
+                                            <ListItemText primary={subMenuItem.name} />
                                     </ListItemButton>
+                                        </Link>  
                                 ))
                             }
                         </List>
