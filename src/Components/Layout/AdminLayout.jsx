@@ -331,10 +331,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography> */}
-
+       
           {/* search bar here */}
 
           <Search>
@@ -349,7 +346,9 @@ export default function MiniDrawer() {
 
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+
                   {/* mail here */}
+
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="error">
                         <MailIcon />
@@ -429,6 +428,7 @@ export default function MiniDrawer() {
                               justifyContent: 'center',
                             },
                       ]}
+                      href = {navItem.pathname}
                     >
                       <ListItemIcon
                         sx={[
