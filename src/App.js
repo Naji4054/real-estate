@@ -13,6 +13,7 @@ import AdminDashboard from './Pages/Admin/AdminDashboard';
 import ManageUsers from './Pages/Admin/ManageUsers';
 import UserLayout from './Components/Layout/UserLayout';
 import AdminLayout from './Components/Layout/AdminLayout';
+import AddUsers from './Pages/Admin/AddUsers'
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
 
               <Route element={<AdminLayout/>}>
                 <Route path='/admin' element={<AdminDashboard/>}/>
-                <Route path='/admin/users' element={<ManageUsers/>}/>
+                <Route path='/admin/manage-users' element={<ManageUsers/>}/>
+                <Route path='/admin/add-users' element={<AddUsers/>}/>
               </Route>
             </Routes>
           <Toaster/>

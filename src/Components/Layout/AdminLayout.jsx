@@ -17,7 +17,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { adminNavigation } from '../../Utils/navigation';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -33,6 +33,15 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { link } from 'joi';
+import Button from '@mui/material/Button';
+import RealEstateAgentOutlinedIcon from '@mui/icons-material/RealEstateAgentOutlined';
+import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
+import AddHomeWorkOutlinedIcon from '@mui/icons-material/AddHomeWorkOutlined';
+import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
+import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
+import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 
 const drawerWidth = 240;
 
@@ -271,21 +280,21 @@ export default function MiniDrawer() {
   const icons = {
     dashboard: <MenuIcon/>,
 
-    property: < RealEstateAgentIcon/>,
-    propertyAdd:  <MenuIcon/>,
-    propertyList:  <MenuIcon/>,
+    property: < RealEstateAgentOutlinedIcon/>,
+    propertyAdd:  <AddHomeWorkOutlinedIcon/>,
+    propertyList:  <ListAltOutlinedIcon/>,
 
-    orders: < PersonAddIcon/>,
-    orderManage:  <MenuIcon/>,
-    orderList:  <MenuIcon/>,
+    orders: <LocalMallOutlinedIcon/>,
+    orderManage:  <EditNoteOutlinedIcon/>,
+    orderList:  <ListAltOutlinedIcon/>,
 
-    agents: < PersonAddIcon/>,
+    agents: <Groups2OutlinedIcon/>,
     agentAdd:  <MenuIcon/>,
-    agentList:  <MenuIcon/>,
+    agentList:  <ListAltOutlinedIcon/>,
 
     users: < PersonAddIcon/>,
-    userAdd:  <MenuIcon/>,
-    userList:  <MenuIcon/>,
+    userAdd:  <PersonAddOutlinedIcon />,
+    userList:  <ListAltOutlinedIcon/>,
     
   }
 
@@ -389,7 +398,7 @@ export default function MiniDrawer() {
         </Toolbar>
       </AppBar>
 
-      
+
       {renderMobileMenu}
       {renderMenu}
 
@@ -472,7 +481,7 @@ export default function MiniDrawer() {
                         <List component="div" disablePadding>
                             {
                                 navItem.children.map((subMenuItem, index)=> (
-                                    <ListItemButton sx={{ pl: 4 }} key={index}>
+                                    <ListItemButton sx={{ pl: 4 }} key={index} href={subMenuItem.pathname}>
                                         <ListItemIcon>
                                             { icons[subMenuItem.icon]}
                                         </ListItemIcon>

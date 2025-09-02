@@ -23,6 +23,10 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
+import AddUserDialog from './AddUsers';
+import Button from '@mui/material/Button';
+
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -208,6 +212,18 @@ EnhancedTableHead.propTypes = {
 
 function EnhancedTableToolbar(props) {
   const { numSelected } = props;
+  // form for adding new user
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Toolbar
       sx={[
@@ -256,7 +272,7 @@ function EnhancedTableToolbar(props) {
               inputProps={{ 'aria-label': 'search' }}
             />
       </Search>
-      
+
       {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>
@@ -270,6 +286,10 @@ function EnhancedTableToolbar(props) {
           </IconButton>
         </Tooltip>
       )}
+      <Button variant="outlined" onClick={handleClickOpen}>
+        <PersonAddOutlinedIcon/>
+      </Button>
+      <AddUserDialog open={open} handleClose={handleClose}/>
     </Toolbar>
   );
 }
@@ -285,6 +305,9 @@ export default function EnhancedTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  
+
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -431,6 +454,7 @@ export default function EnhancedTable() {
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
       />
+     
     </Box>
   );
 }

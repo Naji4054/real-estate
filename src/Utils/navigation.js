@@ -1,3 +1,4 @@
+
 export const adminNavigation = [
     {
         name: 'Dashboard',
@@ -63,12 +64,7 @@ export const adminNavigation = [
             {
                 name: 'Manage Users',
                 icon: 'userList',
-                pathname: '/admin/property'
-            },
-            {
-                name: 'Add Users',
-                icon: 'userAdd',
-                pathname: '/admin/property/add'
+                pathname: '/admin/manage-users'
             },
         ]
     },
