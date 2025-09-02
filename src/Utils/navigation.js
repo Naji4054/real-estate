@@ -47,7 +47,7 @@ export const adminNavigation = [
             {
                 name: 'Manage Agents',
                 icon: 'agentList',
-                pathname: '/admin/property'
+                pathname: '/admin/manage-agents'
             },
             {
                 name: 'Add Agents',

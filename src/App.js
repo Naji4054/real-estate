@@ -15,6 +15,7 @@ import UserLayout from './Components/Layout/UserLayout';
 import AdminLayout from './Components/Layout/AdminLayout';
 import AddUsers from './Pages/Admin/AddUsers'
 import AllProperty from './Pages/Admin/AllProperty';
+import ManageAgents from './Pages/Admin/ManageAgents';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/admin/manage-users' element={<ManageUsers/>}/>
                 <Route path='/admin/add-users' element={<AddUsers/>}/>
                 <Route path='/admin/all-property' element={<AllProperty/>}/>
+                <Route path='/admin/manage-agents' element={<ManageAgents/>}/>
 
               </Route>
             </Routes>
