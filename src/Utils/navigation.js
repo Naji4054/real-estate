@@ -30,7 +30,7 @@ export const adminNavigation = [
             {
                 name: 'List Orders',
                 icon: 'orderList',
-                pathname: '/admin/property'
+                pathname: '/admin/all-orders'
             },
             {
                 name: 'Manage Orders',

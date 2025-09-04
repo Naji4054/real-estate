@@ -7,12 +7,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { propertyData } from '../../Utils/allproperty';
 import { EyeIcon } from '@heroicons/react/24/outline'
 import { TrashIcon } from '@heroicons/react/24/outline'
 import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import Divider from '@mui/material/Divider';
 import SearchBar from '../../Components/SearchBar';
+import { orderData } from '../../Utils/allorders';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -37,13 +37,14 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-const rows = propertyData
+const rows = orderData
+console.log(rows)
 
-export default function AllProperty() {
+export default function AllOrders() {
   return (
     <>
     <div>
-      <SearchBar/>
+    <SearchBar customStyle={{ '& > .css-1aschtf': { margin: '0 !important' }}} />
     </div>
     
     <Divider/>
@@ -51,22 +52,23 @@ export default function AllProperty() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell sx={{ width: '15%'}}>P-ID</StyledTableCell>
+            <StyledTableCell sx={{ width: '15%'}}>ORDER-ID</StyledTableCell>
+            <StyledTableCell sx={{ width: '15%'}}>DATE</StyledTableCell>
             <StyledTableCell sx={{ width: '20%'}}>PROPERTY</StyledTableCell>
-            <StyledTableCell sx={{ width: '20%'}}>CATEGORY</StyledTableCell>
-            <StyledTableCell sx={{ width: '15%'}}>AREA</StyledTableCell>
-            <StyledTableCell sx={{ width: '15%'}}>PRICE</StyledTableCell>
+            <StyledTableCell sx={{ width: '20%'}}>LOCATION</StyledTableCell>
+            <StyledTableCell sx={{ width: '15%'}}>STATUS</StyledTableCell>
             <StyledTableCell sx={{ width: '10%'}}>ACTIONS</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
+        
           {rows.map((row) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell>{row.id}</StyledTableCell>
-              <StyledTableCell >{row.title}</StyledTableCell>
-              <StyledTableCell >{row.category}</StyledTableCell>
-              <StyledTableCell >{row.area}</StyledTableCell>
-              <StyledTableCell >{row.price}</StyledTableCell>
+              <StyledTableCell >{row.date}</StyledTableCell>
+              <StyledTableCell >{row.property}</StyledTableCell>
+              <StyledTableCell >{row.location}</StyledTableCell>
+              <StyledTableCell >{row.status}</StyledTableCell>
               <StyledTableCell sx={{ display: 'flex', gap: 2}}>
                     <div>
                         <button><EyeIcon className="size-6 text-grey w-[17px]" /></button>

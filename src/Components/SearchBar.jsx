@@ -43,7 +43,7 @@ const Search = styled('div')(({ theme }) => ({
   }));
   
 
-const SearchBar = ({handleSearch})=> {
+const SearchBar = ({handleSearch, customStyle})=> {
 
     
     return (

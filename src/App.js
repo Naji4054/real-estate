@@ -1,7 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './Components/Layout/Header/Header';
-import Footer from './Components/Layout/Footer/Footer';
 import Home from './Pages/Home/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from './Pages/About/About';
@@ -16,6 +13,7 @@ import AdminLayout from './Components/Layout/AdminLayout';
 import AddUsers from './Pages/Admin/AddUsers'
 import AllProperty from './Pages/Admin/AllProperty';
 import ManageAgents from './Pages/Admin/ManageAgents';
+import AllOrders from './Pages/Admin/AllOrders';
 
 function App() {
   return (
@@ -37,6 +35,7 @@ function App() {
                 <Route path='/admin/add-users' element={<AddUsers/>}/>
                 <Route path='/admin/all-property' element={<AllProperty/>}/>
                 <Route path='/admin/manage-agents' element={<ManageAgents/>}/>
+                <Route path='/admin/all-orders' element={<AllOrders/>}/>
 
               </Route>
             </Routes>
