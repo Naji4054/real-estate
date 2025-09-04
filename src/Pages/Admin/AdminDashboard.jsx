@@ -2,6 +2,7 @@ import React from 'react'
 import ReactApexChart from 'apexcharts'
 import LineChart from '../../Components/ui/LineChart'
 import { BuildingStorefrontIcon } from '@heroicons/react/24/outline';
+import RadarChart from '../../Components/ui/RadarChart';
 
 
 
@@ -164,8 +165,11 @@ const AdminDashboard = () => {
         </div>
       </div>
 
+      <div>
+        <RadarChart/>
+      </div>
     </div>
   )
 }
 
-export default AdminDashboard
+export default AdminDashboard;

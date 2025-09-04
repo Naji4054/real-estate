@@ -11,6 +11,8 @@ import { propertyData } from '../../Utils/allproperty';
 import { EyeIcon } from '@heroicons/react/24/outline'
 import { TrashIcon } from '@heroicons/react/24/outline'
 import { PencilSquareIcon } from '@heroicons/react/24/outline'
+import Divider from '@mui/material/Divider';
+import SearchBar from '../../Components/SearchBar';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -39,6 +41,12 @@ const rows = propertyData
 
 export default function AllProperty() {
   return (
+    <>
+    <div>
+    <SearchBar/>
+    </div>
+    
+    <Divider/>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -76,5 +84,7 @@ export default function AllProperty() {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
+  
 }
