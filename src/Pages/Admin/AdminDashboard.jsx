@@ -2,10 +2,15 @@ import React from 'react'
 import ReactApexChart from 'apexcharts'
 import LineChart from '../../Components/ui/LineChart'
 import { BuildingStorefrontIcon } from '@heroicons/react/24/outline';
-import RadarChart from '../../Components/ui/RadarChart';
+import RadarChart from './RadarChart';
 import SalesTable from './SalesTable';
 import LastTransactionTable from './TransactionTable';
 import EarningsChart from './EarningsChart';
+import { BarChart } from '@mui/x-charts/BarChart';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -110,6 +115,8 @@ const AdminDashboard = () => {
     },          
 });
 
+
+
   return (
    <>
     <div className=' container mx-auto grid grid-cols-4 gap-[20px]'>
@@ -170,8 +177,30 @@ const AdminDashboard = () => {
       </div>  
     </div>
 
-    <section>
-      <div>
+    <section className='grid grid-cols-3  gap-[20px] mt-8 mb-10'>
+      <div className='grid-custom3  shadow-[12px_12px_13px_4px_whitesmoke] col-start-1 col-end-3'>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+        <Typography variant="h6">Project Status</Typography>
+        <IconButton>
+          <MoreVertIcon />
+        </IconButton>
+      </Box>
+       <Box>
+       <BarChart
+          xAxis={[
+            {
+              scaleType: 'band',
+              data: ['Apartments', 'Villas', 'Offices', 'Houses','Condos'],
+              categoryGapRatio: 0.6, // A smaller number means wider bars
+            },
+          ]}
+          series={[{ data: [10, 16, 19, 11,7] }]}
+          height={400}
+          width={800}
+      />
+       </Box>
+      </div>
+      <div className=' shadow-[12px_12px_13px_4px_whitesmoke]'>
           <RadarChart/>
       </div>
     </section>
