@@ -11,6 +11,8 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Typography from '@mui/material/Typography';
+import Timeline from './Timeline';
+import AgentsOverview from './AgentsOverview';
 
 
 
@@ -213,6 +215,15 @@ const AdminDashboard = () => {
       </div>
       <div>
         <LastTransactionTable/>
+      </div>
+    </section>
+    <section className='grid grid-cols-5'>
+      <div className='col-start-1 col-end-3'>
+        <Timeline/>
+      </div>
+      
+      <div className='col-start-3 col-end-6'>
+        <AgentsOverview/>
       </div>
     </section>
   

@@ -50,6 +50,10 @@
     display: grid;
     grid-template-rows: 50px 400px;
   }
+  .grid-custom4 {
+    display: grid;
+    grid-template-rows: 50px 510px;
+  }
   .css-10d30g3-MuiPaper-root-MuiDialog-paper {
     width: 800px !important;
   }
