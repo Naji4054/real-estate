@@ -3,6 +3,9 @@ import ReactApexChart from 'apexcharts'
 import LineChart from '../../Components/ui/LineChart'
 import { BuildingStorefrontIcon } from '@heroicons/react/24/outline';
 import RadarChart from '../../Components/ui/RadarChart';
+import SalesTable from './SalesTable';
+import LastTransactionTable from './TransactionTable';
+import EarningsChart from './EarningsChart';
 
 
 
@@ -108,6 +111,7 @@ const AdminDashboard = () => {
 });
 
   return (
+   <>
     <div className=' container mx-auto grid grid-cols-4 gap-[20px]'>
       <div className="max-w-[250px] shadow-[12px_12px_13px_4px_whitesmoke] grid-custom">
         <div>
@@ -163,12 +167,27 @@ const AdminDashboard = () => {
           <p className='text-[18px] font-bold '>175k</p>
           <p className='text-[13px] text-[#ff5a3c] '>-16.2%</p>
         </div>
-      </div>
-
-      <div>
-        <RadarChart/>
-      </div>
+      </div>  
     </div>
+
+    <section>
+      <div>
+          <RadarChart/>
+      </div>
+    </section>
+    <section className='grid grid-cols-3 gap-[20px]' >
+      <div>
+        <SalesTable/>
+      </div>
+      <div>
+        <EarningsChart/>
+      </div>
+      <div>
+        <LastTransactionTable/>
+      </div>
+    </section>
+  
+   </>
   )
 }
 

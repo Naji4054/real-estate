@@ -15,11 +15,6 @@ export const adminNavigation = [
                 icon: 'propertyList',
                 pathname: '/admin/all-property'
             },
-            {
-                name: 'Add Property',
-                icon: 'propertyAdd',
-                pathname: '/admin/property/add'
-            },
         ]
     },
     {
@@ -32,11 +27,6 @@ export const adminNavigation = [
                 icon: 'orderList',
                 pathname: '/admin/all-orders'
             },
-            {
-                name: 'Manage Orders',
-                icon: 'orderManage',
-                pathname: '/admin/property/add'
-            },
         ]
     },
     {
@@ -48,11 +38,6 @@ export const adminNavigation = [
                 name: 'Manage Agents',
                 icon: 'agentList',
                 pathname: '/admin/manage-agents'
-            },
-            {
-                name: 'Add Agents',
-                icon: 'agentAdd',
-                pathname: '/admin/property/add'
             },
         ]
     },
