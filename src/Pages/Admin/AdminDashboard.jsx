@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactApexChart from 'apexcharts'
-import LineChart from '../../Components/ui/LineChart'
+import React from 'react';
+import ReactApexChart from 'apexcharts';
+import LineChart from '../../Components/ui/LineChart';
 import { BuildingStorefrontIcon } from '@heroicons/react/24/outline';
 import RadarChart from './RadarChart';
 import SalesTable from './SalesTable';
@@ -193,10 +193,11 @@ const AdminDashboard = () => {
             {
               scaleType: 'band',
               data: ['Apartments', 'Villas', 'Offices', 'Houses','Condos'],
+              
               categoryGapRatio: 0.6, // A smaller number means wider bars
             },
           ]}
-          series={[{ data: [10, 16, 19, 11,7] }]}
+          series={[{ data: [10, 16, 19, 11,7],barStyle: { rx: 10, ry: 10 }, }]}
           height={400}
           width={800}
       />
