@@ -13,6 +13,7 @@ import { TrashIcon } from '@heroicons/react/24/outline'
 import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import Divider from '@mui/material/Divider';
 import SearchBar from '../../Components/SearchBar';
+import debounce from 'lodash.debounce'
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -37,13 +38,32 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-const rows = propertyData
+
 
 export default function AllProperty() {
+
+  const [rows, setRows] = React.useState(propertyData)
+  
+
+  const handleSearch = debounce((val) => {
+    const list = propertyData.filter(item=> item.title.toLocaleLowerCase().includes(val.toLocaleLowerCase()))
+    setRows(list)
+  }, 200)
+
+  const handleSearchInput = (val) => {
+
+    if (val) {
+      handleSearch(val)
+    } else {
+      setRows(propertyData)
+    }
+
+  }
+
   return (
     <>
     <div>
-      <SearchBar/>
+      <SearchBar handleSearch={handleSearchInput}/>
     </div>
     
     <Divider/>
