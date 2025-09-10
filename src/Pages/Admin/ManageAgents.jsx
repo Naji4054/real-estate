@@ -11,6 +11,9 @@ import { EyeIcon } from '@heroicons/react/24/outline'
 import { TrashIcon } from '@heroicons/react/24/outline'
 import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import { manageAgents } from '../../Utils/manageAgents';
+import Divider from '@mui/material/Divider';
+import SearchBar from '../../Components/SearchBar';
+import debounce from 'lodash.debounce'
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -35,10 +38,28 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-const rows = manageAgents
+
 
 export default function ManageAgents() {
+  const [rows, setRows] = React.useState(manageAgents);
+
+  const handleSearch = debounce((value) => {
+    const list  = manageAgents.filter(item => item.firstName.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
+    setRows(list)
+  },200)
+  const handleSearchInput = (val) => {
+    if(val){
+      handleSearch(val)
+    }
+}
+
   return (
+    <>
+    <div>
+      <SearchBar handleSearch={handleSearchInput}/>
+    </div>
+    
+    <Divider/>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -79,5 +100,7 @@ export default function ManageAgents() {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
+    
   );
 }
