@@ -45,8 +45,8 @@ export default function AllProperty() {
   const [rows, setRows] = React.useState(propertyData)
   
 
-  const handleSearch = debounce((val) => {
-    const list = propertyData.filter(item=> item.title.toLocaleLowerCase().includes(val.toLocaleLowerCase()))
+  const handleSearch = debounce((value) => {
+    const list = propertyData.filter(item=> item.title.toLocaleLowerCase().includes(value.toLocaleLowerCase()) || item.area.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
     setRows(list)
   }, 200)
 

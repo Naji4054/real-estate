@@ -13,6 +13,7 @@ import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import Divider from '@mui/material/Divider';
 import SearchBar from '../../Components/SearchBar';
 import { orderData } from '../../Utils/allorders';
+import debounce from 'lodash.debounce'
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -36,15 +37,26 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-
-const rows = orderData
-console.log(rows)
-
 export default function AllOrders() {
+  const [rows, setRows] = React.useState(orderData);
+
+  const handleSearch = debounce((val) => {
+    const list = orderData.filter(item => item.location.toLocaleLowerCase().includes(val.toLocaleLowerCase()))
+    setRows(list)
+  },200)
+
+  const handleSearchInput = (values) => {
+    if (values){
+      handleSearch(values)
+    } else {
+      setRows(orderData)
+    }
+  }
+  
   return (
     <>
     <div>
-    <SearchBar customStyle={{ '& > .css-1aschtf': { margin: '0 !important' }}} />
+    <SearchBar customStyle={{ '& > .css-1aschtf': { margin: '0 !important' }}} handleSearch={handleSearchInput} />
     </div>
     
     <Divider/>
