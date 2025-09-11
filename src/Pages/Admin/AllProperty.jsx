@@ -14,6 +14,7 @@ import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import Divider from '@mui/material/Divider';
 import SearchBar from '../../Components/SearchBar';
 import debounce from 'lodash.debounce'
+import axios from 'axios';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -42,7 +43,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function AllProperty() {
 
-  const [rows, setRows] = React.useState(propertyData)
+  const [rows, setRows] = React.useState([]);
+  const fetchData = async ()=> {
+    await axios.get('http://localhost:3000/admin/property').then(res => setRows(res.data.data)).catch(err => console.log(err))
+  }
+  React.useEffect(() => {
+    fetchData()
+  },[])
   
 
   const handleSearch = debounce((value) => {

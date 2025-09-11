@@ -14,6 +14,7 @@ import { manageAgents } from '../../Utils/manageAgents';
 import Divider from '@mui/material/Divider';
 import SearchBar from '../../Components/SearchBar';
 import debounce from 'lodash.debounce'
+import axios from 'axios';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -41,7 +42,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 export default function ManageAgents() {
-  const [rows, setRows] = React.useState(manageAgents);
+
+  const [rows, setRows] = React.useState([]);
+  const fetchData = async ()=> {
+    await axios.get('http://localhost:3000/admin/agents').then(res => setRows(res.data.data)).catch(err => console.log(err))
+  }
+  React.useEffect(() => {
+    fetchData()
+  },[])
+  
 
   const handleSearch = debounce((value) => {
     const list  = manageAgents.filter(item => item.firstName.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
