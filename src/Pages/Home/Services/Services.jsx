@@ -1,9 +1,22 @@
-import { ServiceData } from "../../../Data/data";
+import axios from "axios";
+// import { ServiceData } from "../../../Data/data";
+import { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 
 const Services = (props)=> {
 
-    console.log(props)
+    const [serviceData, setServiceData] = useState([])
+
+    const fetchData = async ()=> {
+        
+        await axios.get('http://localhost:3000/service/data').then(res=>  setServiceData(res.data.data) ).catch(err=> console.log(err))
+        
+    }
+    
+    useEffect(()=> {
+        fetchData()
+    }, [])
+
     return (
         <>
         <section className="mb-[80px]">
@@ -13,7 +26,7 @@ const Services = (props)=> {
             </div>
             <div  className="grid grid-cols-3 gap-11 shadow-[10px]">
                 {
-                    ServiceData.map((item)=> <ServiceCard key={item.id} data={item}/>)
+                    serviceData.map((item)=> <ServiceCard key={item.id} data={item}/>)
                 }             
             </div>
         </section>
