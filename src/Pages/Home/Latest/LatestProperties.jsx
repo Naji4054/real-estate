@@ -1,9 +1,18 @@
-import React from 'react'
-import { LatestData } from '../../../Data/latest'
+import React, { useEffect, useState } from 'react'
+// import { LatestData } from '../../../Data/latest'
 import LatestCards from './LatestCards'
 import Carousel from '../../../Components/ui/Carousel'
+import axios from 'axios'
 
 const LatestProperties = () => {
+
+    const [latestData, setLatestData] = useState([])
+    const featchData = async() =>{
+        await axios.get('http://localhost:3000/latest/data').then(res => setLatestData(res.data.latestDatas)).catch(err => console.log(err))
+    }
+    useEffect (() => {
+        featchData()
+    },[])
     
   return (
    <>
@@ -15,7 +24,7 @@ const LatestProperties = () => {
             <div className='container mx-auto ' >
                 <Carousel>
                 {
-                    LatestData.map((item)=> <LatestCards key={item.id} data={item}/>)
+                    latestData.map((item)=> <LatestCards key={item.id} data={item}/>)
                 }     
                 </Carousel>        
             </div>

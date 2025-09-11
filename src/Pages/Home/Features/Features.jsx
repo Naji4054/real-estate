@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import { FeatureData } from "../../../Data/features";
 import FeaturedCard from "./FeaturedCard";
+import axios from "axios";
 
 const   Features = (props)=> {
 
+    const [FeatureData, setFeatureData] =  useState([])
+    const featchData = async () => {
+        await axios.get('http://localhost:3000/features/data').then(res => setFeatureData(res.data.data)).catch(err => console.log(err))
+    }
+    useEffect(() => {
+        featchData()
+    },[])
+
     console.log(props)
+
     return (
         <>
         <section className="mb-[80px]">
