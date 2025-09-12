@@ -14,6 +14,7 @@ import AddUsers from './Pages/Admin/AddUsers'
 import AllProperty from './Pages/Admin/AllProperty';
 import ManageAgents from './Pages/Admin/ManageAgents';
 import AllOrders from './Pages/Admin/AllOrders';
+import ViewProperty from './Pages/Admin/ViewProperty';
 
 function App() {
   return (
@@ -34,8 +35,10 @@ function App() {
                 <Route path='/admin/manage-users' element={<ManageUsers/>}/>
                 <Route path='/admin/add-users' element={<AddUsers/>}/>
                 <Route path='/admin/all-property' element={<AllProperty/>}/>
+                <Route  path='/admin/all-property/view/:id' element={<ViewProperty/>}/>
                 <Route path='/admin/manage-agents' element={<ManageAgents/>}/>
                 <Route path='/admin/all-orders' element={<AllOrders/>}/>
+                
 
               </Route>
             </Routes>

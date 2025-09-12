@@ -15,6 +15,7 @@ import Divider from '@mui/material/Divider';
 import SearchBar from '../../Components/SearchBar';
 import debounce from 'lodash.debounce'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -50,7 +51,6 @@ export default function AllProperty() {
   React.useEffect(() => {
     fetchData()
   },[])
-  
 
   const handleSearch = debounce((value) => {
     const list = propertyData.filter(item=> item.title.toLocaleLowerCase().includes(value.toLocaleLowerCase()) || item.area.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
@@ -65,6 +65,12 @@ export default function AllProperty() {
       setRows(propertyData)
     }
 
+  }
+
+  const navigator  = useNavigate()
+
+  const handlePropertyView = (id) => {
+    navigator(`/admin/all-property/view/${id}`)
   }
 
   return (
@@ -96,7 +102,7 @@ export default function AllProperty() {
               <StyledTableCell >{row.price}</StyledTableCell>
               <StyledTableCell sx={{ display: 'flex', gap: 2}}>
                     <div>
-                        <button><EyeIcon className="size-6 text-grey w-[17px]" /></button>
+                        <button onClick={()=> handlePropertyView(row.id)} ><EyeIcon className="size-6 text-grey w-[17px]"  /></button>
                     </div>        
                     <div>
                         <button><PencilSquareIcon className="size-6 text-grey w-[17px]" /></button>

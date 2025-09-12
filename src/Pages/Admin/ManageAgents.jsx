@@ -45,7 +45,10 @@ export default function ManageAgents() {
 
   const [rows, setRows] = React.useState([]);
   const fetchData = async ()=> {
-    await axios.get('http://localhost:3000/admin/agents').then(res => setRows(res.data.data)).catch(err => console.log(err))
+    await axios.get('http://localhost:3000/admin/agents').then(res => {
+      console.log(res.data.data)
+      setRows(res.data.data)
+    }).catch(err => console.log(err))
   }
   React.useEffect(() => {
     fetchData()
