@@ -27,18 +27,18 @@ export const reviewsData = [
         reviewerName: "Samuel Lee",
         reviewerTitle: "CUSTOMER"
     },
-    // {
-    //     id: 5,
-    //     reviewText: "Precious ipsum dolor sit amet con-sectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte",
-    //     avatar: "/images/avatar-1.png",
-    //     reviewerName: "Olivia Wilson",
-    //     reviewerTitle: "SELLING AGENTS"
-    // },
-    // {
-    //     id: 6,
-    //     reviewText: "Precious ipsum dolor sit amet con-sectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte",
-    //     avatar: "/images/avatar-1.png",
-    //     reviewerName: "Ethan Martinez",
-    //     reviewerTitle: "CUSTOMER"
-    // }
+    {
+        id: 5,
+        reviewText: "Precious ipsum dolor sit amet con-sectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte",
+        avatar: "/images/avatar-1.png",
+        reviewerName: "Olivia Wilson",
+        reviewerTitle: "SELLING AGENTS"
+    },
+    {
+        id: 6,
+        reviewText: "Precious ipsum dolor sit amet con-sectetur adipisicing elit, sed dos mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad min veniam, quis nostrud Precious ips um dolor sit amet, consecte",
+        avatar: "/images/avatar-1.png",
+        reviewerName: "Ethan Martinez",
+        reviewerTitle: "CUSTOMER"
+    }
 ];

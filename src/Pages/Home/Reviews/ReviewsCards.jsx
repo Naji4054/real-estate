@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 const ReviewsCards = (props) => {
     const data = props.data
   return (
-   <div className='max-w-[350px] border-[1px_solid_whitesmoke] shadow-[10px_10px_25px_15px_whitesmoke]'>
+   <div className='max-w-[350px] border-[1px_solid_whitesmoke] shadow-[0px_4px_15px_rgba(0,0,0,0.08)]'>
      <div className='px-[20px] py-[40px]'>
       <p className='text-[#5c727d] text-[16px]'>{data.reviewText}</p>
     </div>

@@ -1,17 +1,24 @@
 import React from 'react'
 import { reviewsData } from '../../../Data/reviews'
 import ReviewsCards from './ReviewsCards'
-import Carousel from '../../../Components/ui/Carousel'
+import SliderComponent from '../../../Components/ui/CarouselNew'
 
 const Reviews = () => {
+    const reviewSliderSettings = {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+    }
   return (
    <section className='mb-[50px]'>
-     <div className='flex gap-7'>
-     
-      {
-        reviewsData.map((item) =><ReviewsCards  key={item.id} data = {item} />)
-      }
-       
+     <div >
+  <SliderComponent settings={reviewSliderSettings}>
+  {
+            reviewsData.map((item) =><ReviewsCards  key={item.id} data = {item} />)
+        }
+  </SliderComponent>
+        
+      
     </div>
    </section>
   )

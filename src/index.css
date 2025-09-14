@@ -61,3 +61,6 @@
     width: 50px !important;
     height: 50px !important;
   }
+  .slick-initialized .slick-slide {
+    width:auto !important
+  }
