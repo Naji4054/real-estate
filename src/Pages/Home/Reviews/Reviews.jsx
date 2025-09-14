@@ -1,22 +1,21 @@
 import React from 'react'
 import { reviewsData } from '../../../Data/reviews'
 import ReviewsCards from './ReviewsCards'
-import SliderComponent from '../../../Components/ui/CarouselNew'
+import Carousel from '../../../Components/ui/Carousel'
 
 const Reviews = () => {
-    const reviewSliderSettings = {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-    }
   return (
    <section className='mb-[50px]'>
+     <div className="flex flex-col justify-center items-center mb-[50px]">
+        <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Our Testimonials</h3>
+         <h1 className="text-[41px] font-semibold">Reviews</h1>
+    </div>
      <div >
-  <SliderComponent settings={reviewSliderSettings}>
-  {
+  <Carousel>
+        {
             reviewsData.map((item) =><ReviewsCards  key={item.id} data = {item} />)
         }
-  </SliderComponent>
+  </Carousel>
         
       
     </div>
