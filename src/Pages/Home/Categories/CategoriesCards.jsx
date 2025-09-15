@@ -4,9 +4,9 @@ const CategoriesCards = (props) => {
 const data = props.data
   return (
     
-      <div className='max-w-[300px]'>
+      <div>
             
-            <img src ={data.image} alt="category imgae"  />
+            <img src ={data.image} alt="category imgae"  className='w-full' />
       </div>
    
   )

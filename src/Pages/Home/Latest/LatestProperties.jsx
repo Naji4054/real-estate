@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import { LatestData } from '../../../Data/latest'
+import { LatestData } from '../../../Data/latest'
 import LatestCards from './LatestCards'
 import Carousel from '../../../Components/ui/Carousel'
 import axios from 'axios'
@@ -24,7 +24,7 @@ const LatestProperties = () => {
             <div className='container mx-auto ' >
                 <Carousel>
                 {
-                    latestData.map((item)=> <LatestCards key={item.id} data={item}/>)
+                 latestData.map((item)=> <LatestCards key={item.id} data={item}/>)
                 }     
                 </Carousel>        
             </div>
