@@ -9,7 +9,7 @@ const Services = (props)=> {
 
     const fetchData = async ()=> {
         
-        await axios.get('http://localhost:3000/service/data').then(res=>  setServiceData(res.data.data) ).catch(err=> console.log(err))
+        await axios.get('http://localhost:3000/api/v1/service/data').then(res=>  setServiceData(res.data.data) ).catch(err=> console.log(err))
         
     }
     
