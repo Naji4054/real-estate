@@ -2,20 +2,23 @@ export const categoriesData = [
     {
         id:1,
         image:"/images/apartment-c.png",
-        title:"",
+        property:"10 Properties",
+        category:"Apartment"
        
     },
     {
         id:2,
         image:"/images/studio-c.png",
-        title:"",
+        property:"15 Properties",
+        category:"Studio"
         
     },
     {
 
         id:3,
         image:"/images/shop-c.png",
-        title:"",
+        property:"5 Properties",
+        category:"Shop"
        
     },
     
@@ -24,7 +27,8 @@ export const categoriesData = [
 
         id:4,
         image:"/images/singlefamilyhome-c.png",
-        title:"",
+        property:"8 Properties",
+        category:"Single Family Home"
        
     },
     
@@ -33,14 +37,16 @@ export const categoriesData = [
 
         id:5,
         image:"/images/office-c.png",
-        title:"",
+        property:"3 Properties",
+        category:"Office"
        
     },
     {
 
         id:6,
         image:"/images/villa-c.png",
-        title:"",
+        property:"18 Properties",
+        category:"Villa"
        
     },
 ]
