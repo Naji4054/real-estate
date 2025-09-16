@@ -8,7 +8,7 @@ const LatestProperties = () => {
 
     const [latestData, setLatestData] = useState([])
     const featchData = async() =>{
-        await axios.get('http://localhost:3000/latest/data').then(res => setLatestData(res.data.latestDatas)).catch(err => console.log(err))
+        await axios.get('http://localhost:3000/api/v1/latest/data').then(res => setLatestData(res.data.latestDatas)).catch(err => console.log(err))
     }
     useEffect (() => {
         featchData()

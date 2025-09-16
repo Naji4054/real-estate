@@ -7,7 +7,7 @@ const   Features = (props)=> {
 
     const [FeatureData, setFeatureData] =  useState([])
     const featchData = async () => {
-        await axios.get('http://localhost:3000/features/data').then(res => setFeatureData(res.data.data)).catch(err => console.log(err))
+        await axios.get('http://localhost:3000/api/v1/features/data').then(res => setFeatureData(res.data.data)).catch(err => console.log(err))
     }
     useEffect(() => {
         featchData()
