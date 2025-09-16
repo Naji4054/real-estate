@@ -14,28 +14,32 @@ export const categoriesData = [
     {
 
         id:3,
-        image:"/images/villa-c.png",
-        title:"",
-       
-    },
-    {
-
-        id:4,
         image:"/images/shop-c.png",
         title:"",
        
     },
+    
+   
+    {
+
+        id:4,
+        image:"/images/singlefamilyhome-c.png",
+        title:"",
+       
+    },
+    
+    
     {
 
         id:5,
-        image:"/images/singlefamilyhome-c.png",
+        image:"/images/office-c.png",
         title:"",
        
     },
     {
 
         id:6,
-        image:"/images/office-c.png",
+        image:"/images/villa-c.png",
         title:"",
        
     },
