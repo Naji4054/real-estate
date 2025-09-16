@@ -4,6 +4,7 @@ import Features from "./Features/Features";
 import LatestProperties from "./Latest/LatestProperties";
 import Reviews from "./Reviews/Reviews";
 import Services from "./Services/Services";
+import Partners from "./Partners";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
         <Services/>
         <Categories/>
         <Reviews/>
+        <Partners/>
         </>
     )
 }

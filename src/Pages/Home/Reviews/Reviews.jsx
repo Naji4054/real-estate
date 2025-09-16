@@ -5,7 +5,7 @@ import Carousel from '../../../Components/ui/Carousel'
 
 const Reviews = () => {
   return (
-   <section className='mb-[50px]'>
+   <section className='mb-[100px]'>
      <div className="flex flex-col justify-center items-center mb-[50px]">
         <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Our Testimonials</h3>
          <h1 className="text-[41px] font-semibold">Reviews</h1>
