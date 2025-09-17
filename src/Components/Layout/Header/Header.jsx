@@ -44,9 +44,6 @@ import { AuthContext } from "../../../Pages/Context/AuthContext";
             </div>
 
             <div className="flex item gap-2">
-                {/* <div>
-                    <img src="/images/user-icon.png" alt="user" />
-                </div> */}
                 <div>
                     <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]">ADD LISTING</button>
                 </div>
