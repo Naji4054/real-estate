@@ -94,7 +94,7 @@ const AddListing = () => {
 
           {/* details section */}
           <div className='mb-[50px]'>
-          <p className='mb-5 text-[18px] font-semibold'>Location</p>
+          <p className='mb-5 text-[18px] font-semibold'>Details</p>
           <div className='grid grid-cols-5 gap-8'>
             <div className='relative'>
               <input className='w-full border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px] pr-10' type="number" placeholder='Bedroom'/>
@@ -122,7 +122,7 @@ const AddListing = () => {
           {/* aminities section */}
 
           <div className='mb-[50px]'>
-          <p className='mb-5 text-[18px] font-semibold'>Location</p>
+          <p className='mb-5 text-[18px] font-semibold'>Amenities</p>
 
           <div className='grid grid-cols-4 gap-8'>
             <div className="flex items-center space-x-2">
