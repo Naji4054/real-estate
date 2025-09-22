@@ -16,6 +16,7 @@ import ManageAgents from './Pages/Admin/ManageAgents';
 import AllOrders from './Pages/Admin/AllOrders';
 import ViewProperty from './Pages/Admin/ViewProperty';
 import AddListing from './Pages/AddListing/AddListing';
+import Property from './Pages/Property/Property';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/signup' element={<SignUp/>}/>              
                 <Route path='/about' element={<About/>}/>
                 <Route path='/addlisting' element={<AddListing/>}/>
+                <Route path='/properties' element={<Property/>}/>
               </Route>
               
 

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from './Context/AuthContext';
 import { Link } from 'react-router-dom';
-import toast from 'react-hot-toast';
 import Joi from 'joi'
 
 

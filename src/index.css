@@ -180,3 +180,7 @@
     position: relative;
     bottom: 24%;
   }
+
+  .MuiSlider-root {
+    color: #ff5a3c !important;
+  }
