@@ -2,6 +2,7 @@ import React from 'react'
 import { PencilIcon } from '@heroicons/react/24/solid'
 
 const AddListing = () => {
+  
   return (
     <section className='mb-[100px]'>
       <div className="account-bg-image mb-24">

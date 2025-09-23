@@ -17,6 +17,7 @@ import AllOrders from './Pages/Admin/AllOrders';
 import ViewProperty from './Pages/Admin/ViewProperty';
 import AddListing from './Pages/AddListing/AddListing';
 import Property from './Pages/Property/Property';
+import FileUpload from './Pages/test/fileUpload';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/about' element={<About/>}/>
                 <Route path='/addlisting' element={<AddListing/>}/>
                 <Route path='/properties' element={<Property/>}/>
+                <Route path='/test' element={<FileUpload/>}/>
               </Route>
               
 
