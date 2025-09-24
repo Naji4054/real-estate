@@ -13,7 +13,10 @@ const SignUp = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        consentB: false
+        consentB: false,
+        dob: '', 
+        country:'' , 
+        phone: ''
       })
 
       const schema = Joi.object({
@@ -42,6 +45,15 @@ const SignUp = () => {
         consentB: Joi.boolean().valid(true).required().messages({
             "any.only": "You must agree to the privacy policy"
         }),
+        dob: Joi.date().required().messages({
+            'string.empty': ' dob is required'
+        }),
+        country: Joi.string().required().messages({
+            'string.empty': ' country is required'
+        }),
+        phone: Joi.number().required().messages({
+            'string.empty': ' phone is required'
+        })
     });
 
     const [errors, setErrors] = useState({})
@@ -49,6 +61,8 @@ const SignUp = () => {
       const handleInput = (e) => {
         const {value, name} = e.target;
         setUserData(prev=> ({...prev, [name]:value}));
+        console.log(e.target.name)
+        console.log(e.target.value)
       }
 
       const handleSubmit = (e) => {
@@ -107,6 +121,18 @@ const SignUp = () => {
                 <div className='max-w-[600px] mb-9'>
                     <input type="email" placeholder='Email *' name='email' value = {userData.email} onChange={handleInput}   className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1' />
                     {errors.email && <p className="text-red-500">{errors.email}</p>}
+                </div>
+                <div className='max-w-[600px] mb-9'>
+                    <input type="date" placeholder='DOB' name='dob' value = {userData.dob}  onChange={handleInput} className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1'/>
+                    {errors.dob && <p className="text-red-500">{errors.dob}</p>}
+                </div>
+                <div className='max-w-[600px] mb-9'>
+                    <input type="text" placeholder='Country' name='country' value = {userData.country}  onChange={handleInput} className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1'/>
+                    {errors.country && <p className="text-red-500">{errors.country}</p>}
+                </div>
+                <div className='max-w-[600px] mb-9'>
+                    <input type="number" placeholder='Phone' name='phone' value = {userData.phone}  onChange={handleInput} className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1'/>
+                    {errors.phone && <p className="text-red-500">{errors.phone}</p>}
                 </div>
                 <div className='max-w-[600px] mb-9'>
                     <input type="password" placeholder='Password *' name='password' value = {userData.password} onChange={handleInput}  className='w-full min-h-[65px] border border-solid border-[#c4c5c6] placeholder:text-[#afaeae] px-4 py-1'/>

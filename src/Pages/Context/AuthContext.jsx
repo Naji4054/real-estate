@@ -26,7 +26,7 @@ const AuthProvider = ({children}) => {
     const navigator = useNavigate()
 
     const signup = async (data) => {
-        await axios.post(SERVER_URL + '/auth/register', data)
+        await axios.post('http://localhost:3000/api/v1/auth/register', data)
         .then(res => {
             setSession('access_token', res.data.token)
             setSession('user_data', res.data.data)
@@ -39,7 +39,7 @@ const AuthProvider = ({children}) => {
 
     const login =  async (data) => {
         setLoading(true)
-        await axios.post(SERVER_URL + '/auth/login', data)
+        await axios.post('http://localhost:3000/api/v1/auth/login' , data)
         .then(res =>{
 
             setSession('access_token', res.data.token)
