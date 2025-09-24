@@ -11,7 +11,7 @@ const PropertyInfo = ({ handleFormChange }) => {
         handleFormChange('media')
         axios.post('http://localhost:3000/api/v1/property/add/info', formData, {
           headers: {
-            "Authorization" :' Bearer token'
+            "Authorization" :` Bearer ${token}`
           }
 
         }).then(res=> {

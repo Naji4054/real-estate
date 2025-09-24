@@ -1,7 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-const Media = () => {
+const Media = ({handleFormChange}) => {
+
+    const token = sessionStorage.getItem('access_token')
+   
     
     const [uploadedFiles, setUploadedFiles] = useState({
     })
@@ -13,9 +16,17 @@ const Media = () => {
         Object.keys(uploadedFiles).map(key=> {
             formData.append(key, uploadedFiles[key])
         })
-        
+        handleFormChange('location')
         try {
-            const res = await axios.post('http://localhost:3000/api/test/upload', formData);
+            const res = await axios.post('http://localhost:3000/api/test/upload', formData, {
+                headers: {
+                  "Authorization" :` Bearer ${token}`
+                }
+            }).then(res=> {
+                const {propertyId} = res.data.data
+                sessionStorage.setItem('newPropertyId' , propertyId )
+                sessionStorage.setItem('currentStep', 'location')
+              })
             console.log(res.data);
         } catch (err) {
             console.error(err);
@@ -24,13 +35,12 @@ const Media = () => {
     
     const handleFileChange = (e)=> {
         const { name, files } = e.target
-        
         setUploadedFiles(prev=> ({...prev, [name]: files[0]}))
     }
 
-    // useEffect(()=> {
-    //     console.log(uploadedFiles, 'uploaded files')
-    // }, [uploadedFiles])
+    useEffect(()=> {
+        console.log(uploadedFiles, 'uploaded files')
+    }, [uploadedFiles])
 
   return (
     <div>

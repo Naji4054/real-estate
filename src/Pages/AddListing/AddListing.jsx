@@ -53,7 +53,7 @@ const AddListing = () => {
       <div className='container mx-auto'>
 
         { activeForm === 'propertyInfo' && <PropertyInfo handleFormChange={handleFormChange}/> }        
-        { activeForm === 'media' && <Media /> }
+        { activeForm === 'media' && <Media handleFormChange={handleFormChange} /> }
         { activeForm === 'location' && <Location/> }
         { activeForm === 'details' && <Details/> }
 
