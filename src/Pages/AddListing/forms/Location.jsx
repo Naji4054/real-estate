@@ -1,6 +1,43 @@
 import React from 'react'
 
-const Location = () => {
+const Location = ({handleFormChange}) => {
+
+  const token = sessionStorage.getItem('access_token')
+    const [uploadedFiles, setUploadedFiles] = useState({
+    })
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      const formData = new FormData()
+      Object.keys(uploadedFiles).map(key=> {
+        formData.append(key, uploadedFiles[key])
+          })
+          handleFormChange('details')
+          try {
+            const res = await axios.post('http://localhost:3000/api/test/upload', formData, {
+                headers: {
+                  "Authorization" :` Bearer ${token}`
+                }
+            }).then(res=> {
+                const {propertyId} = res.data.data
+                sessionStorage.setItem('newPropertyId' , propertyId )
+                sessionStorage.setItem('currentStep', 'details')
+              })
+            console.log(res.data);
+        } catch (err) {
+            console.error(err);
+        }
+      }
+    
+    const handleFileChange = (e)=> {
+      const { name, files } = e.target
+      setUploadedFiles(prev=> ({...prev, [name]: files[0]}))
+  }
+
+  useEffect(()=> {
+      console.log(uploadedFiles, 'uploaded files')
+  }, [uploadedFiles])
+
+ 
   return (
     <div>
        <form name= "location">
@@ -17,6 +54,6 @@ const Location = () => {
         </form>
     </div>
   )
-}
 
+}
 export default Location

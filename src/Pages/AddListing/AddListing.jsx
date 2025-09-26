@@ -22,6 +22,7 @@ const AddListing = () => {
   const handleFormChange = (val)=> {
     setActiveForm(val)
   }
+  
 
   useEffect(()=> {
     // fetch the property id from session/cookies and set to propertyId state
