@@ -1,23 +1,29 @@
 import { PencilIcon } from '@heroicons/react/24/outline'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { getSession } from '../../../Utils/storageHelpers'
 
 
-const PropertyInfo = ({ handleFormChange }) => {
+const PropertyInfo =  ({ handleFormChange }) => {
 
-  const token = sessionStorage.getItem('access_token')
-    const handleSubmit = (e)=> {
+  
+ 
+    const handleSubmit = async (e)=> {
         e.preventDefault()
-        handleFormChange('media')
-        axios.post('http://localhost:3000/api/v1/property/add/info', formData, {
+        const token = getSession('access_token')
+        console.log(token ,'tttt')
+        await axios.post('http://localhost:3000/api/v1/property/add/info', formData, {
           headers: {
             "Authorization" :` Bearer ${token}`
-          }
+          } 
 
         }).then(res=> {
           const {propertyId} = res.data.data
           sessionStorage.setItem('newPropertyId' , propertyId )
           sessionStorage.setItem('currentStep', 'media')
+          handleFormChange('media')
+        }).catch(err=> {
+          console.error(err)
         })
     }
 
@@ -90,7 +96,11 @@ const PropertyInfo = ({ handleFormChange }) => {
             </div>
           </div>
           <div>
-            <button className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] w-[300px]">Next</button>
+            <button 
+            type='submit'
+             className="border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] w-[300px]">
+            Next
+            </button>
           </div>
         </form>  
     </div>

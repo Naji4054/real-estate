@@ -42,8 +42,8 @@ const AuthProvider = ({children}) => {
         await axios.post('http://localhost:3000/api/v1/auth/login' , data)
         .then(res =>{
 
-            setSession('access_token', res.data.token)
-            setSession('user_data', res.data.data)
+            setSession('access_token', res.data.access_token)
+            setSession('user_data', JSON.stringify(res.data.data))
             setIsLoggedIn(true)
             navigator('/')
             

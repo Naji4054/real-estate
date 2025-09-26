@@ -16,22 +16,29 @@ const Media = ({handleFormChange}) => {
         Object.keys(uploadedFiles).map(key=> {
             formData.append(key, uploadedFiles[key])
         })
-        handleFormChange('location')
-        try {
-            const res = await axios.post('http://localhost:3000/api/test/upload', formData, {
+        
+        const propertyId = sessionStorage.getItem('newPropertyId')
+        if (propertyId){
+          try {
+            formData.append('propertyId', propertyId)
+            const res = await axios.post('http://localhost:3000/api/v1/property/add/media', formData, {
                 headers: {
                   "Authorization" :` Bearer ${token}`
                 }
             }).then(res=> {
-                const {propertyId} = res.data.data
-                sessionStorage.setItem('newPropertyId' , propertyId )
+                console.log(res.data);
                 sessionStorage.setItem('currentStep', 'location')
+                handleFormChange('location')
               })
-            console.log(res.data);
-        } catch (err) {
-            console.error(err);
+            
+          } catch (err) {
+              console.error(err);
+          }
+        } else {
+          console.log("property id not found")
         }
-    }
+        }
+     
     
     const handleFileChange = (e)=> {
         const { name, files } = e.target

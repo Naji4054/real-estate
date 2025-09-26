@@ -19,9 +19,12 @@ const AddListing = () => {
 
   const [activeForm, setActiveForm] = useState('propertyInfo')
   const [propertyId, setPropertyId] = useState(null)
+
   const handleFormChange = (val)=> {
     setActiveForm(val)
   }
+  
+
   
 
   useEffect(()=> {
@@ -39,7 +42,6 @@ const AddListing = () => {
   }, [])
 
 
-
   return (
     <section className='mb-[100px]'>
       <div className="account-bg-image mb-24">
@@ -55,8 +57,8 @@ const AddListing = () => {
 
         { activeForm === 'propertyInfo' && <PropertyInfo handleFormChange={handleFormChange}/> }        
         { activeForm === 'media' && <Media handleFormChange={handleFormChange} /> }
-        { activeForm === 'location' && <Location/> }
-        { activeForm === 'details' && <Details/> }
+        { activeForm === 'location' && <Location handleFormChange={handleFormChange}/> }
+        { activeForm === 'details' && <Details handleFormChange={handleFormChange}/> }
 
       </div>
     </section>

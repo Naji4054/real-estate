@@ -34,7 +34,7 @@
     "yup": "^1.7.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "react-scripts start -p 3001",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

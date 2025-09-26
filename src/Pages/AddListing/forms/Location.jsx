@@ -1,51 +1,61 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { getSession } from '../../../Utils/storageHelpers'
 
 const Location = ({handleFormChange}) => {
 
   const token = sessionStorage.getItem('access_token')
-    const [uploadedFiles, setUploadedFiles] = useState({
-    })
+
+    const [formData, setFormData] = useState({})
+
     const handleSubmit = async (e) => {
       e.preventDefault()
-      const formData = new FormData()
-      Object.keys(uploadedFiles).map(key=> {
-        formData.append(key, uploadedFiles[key])
-          })
-          handleFormChange('details')
+
+        const propertyId = getSession('newPropertyId')
+        
+
+         if( propertyId ){
+
           try {
-            const res = await axios.post('http://localhost:3000/api/test/upload', formData, {
+            
+            const res = await axios.post('http://localhost:3000/api/v1/property/add/location', {...formData, propertyId}, {
                 headers: {
                   "Authorization" :` Bearer ${token}`
                 }
             }).then(res=> {
-                const {propertyId} = res.data.data
+                console.log(res.data);
                 sessionStorage.setItem('newPropertyId' , propertyId )
                 sessionStorage.setItem('currentStep', 'details')
+                handleFormChange('details')
               })
-            console.log(res.data);
-        } catch (err) {
-            console.error(err);
-        }
-      }
+            
+            } catch (err) {
+                console.error(err);
+            }
+          } else {
+            console.log("property id not found")
+          }
+    }    
     
-    const handleFileChange = (e)=> {
-      const { name, files } = e.target
-      setUploadedFiles(prev=> ({...prev, [name]: files[0]}))
+    const handleInputChange = (e)=> {
+      const { name, value } = e.target
+      setFormData(prev=> ({...prev, [name]: value}))
   }
 
-  useEffect(()=> {
-      console.log(uploadedFiles, 'uploaded files')
-  }, [uploadedFiles])
+  useEffect(()=>{
+    console.log(formData, 'form data')
+   }, [formData])
+
 
  
   return (
     <div>
-       <form name= "location">
+       <form onSubmit={ handleSubmit } name= "location">
             <div className='mb-[50px]'>
               <p className='mb-5 text-[18px] font-semibold'>Location</p>
               <div className='grid grid-cols-2 gap-8'>
-                <input  className='border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px]' type="number" placeholder='Latitude'/>
-                <input  className='border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px]' type="number" placeholder='Longitude'/>
+                <input name = "latitude"  className='border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px]' onChange={handleInputChange} type="text" placeholder='Latitude'/>
+                <input name = "longitude" className='border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px]' onChange={handleInputChange} type="text" placeholder='Longitude'/>
               </div>
             </div>
             <div>
