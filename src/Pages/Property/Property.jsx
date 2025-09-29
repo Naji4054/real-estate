@@ -1,12 +1,22 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-
-function valuetext(price) {
-  return `${price}`;
-}
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import PropertyCards from './PropertyCards';
 
 const Property = () => {
+  function valuetext(price) {
+    return `${price}`;
+  }
+  const [propertyData, setPropertyData] = useState([])
+    const featchData = async() =>{
+        await axios.get('http://localhost:3000/api/v1/property/list').then(res => setPropertyData(res.data.data)).catch(err => console.log(err))
+    }
+    useEffect (() => {
+        featchData()
+    },[])
+
   return (
     <section>
       <div className="account-bg-image mb-24">
@@ -158,7 +168,16 @@ const Property = () => {
       </div>
 
       <div className='col-start-2 col-end-5'>
-        <p className='bg-black'>properties here</p>
+      <div className="flex flex-col justify-center items-center mb-[50px]">
+                <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Properties</h3>
+            </div>
+            <div className='container mx-auto grid grid-cols-2' >
+                
+                {
+                 propertyData.map((item)=> <PropertyCards key={item.id} data={item}/>)
+                }     
+                        
+            </div>
       </div>
 
      </div>

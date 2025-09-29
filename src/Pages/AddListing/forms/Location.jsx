@@ -13,12 +13,17 @@ const Location = ({handleFormChange}) => {
 
         const propertyId = getSession('newPropertyId')
         
+        const locationPoint = {
+          longitude : formData.longitude,
+          latitude: formData.latitude
+        }
+        console.log(locationPoint,"locaiton forntend")
 
          if( propertyId ){
 
           try {
             
-            const res = await axios.post('http://localhost:3000/api/v1/property/add/location', {...formData, propertyId}, {
+            const res = await axios.post('http://localhost:3000/api/v1/property/add/location',{locationPoint, propertyId}, {
                 headers: {
                   "Authorization" :` Bearer ${token}`
                 }

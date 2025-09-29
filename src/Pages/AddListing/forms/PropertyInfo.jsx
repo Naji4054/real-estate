@@ -5,14 +5,24 @@ import { getSession } from '../../../Utils/storageHelpers'
 
 
 const PropertyInfo =  ({ handleFormChange }) => {
+  const [formData, setFormData] = useState({})
 
-  
- 
+  const price = {priceExact:formData.priceExact,
+    after:formData.after,
+    before:formData.before
+  }
+ const title = formData.title
+ const description = formData.description
+ const taxRate = formData.taxRate
+ const location = formData.location
+ const category = formData.category
+ const property = formData.property
+
     const handleSubmit = async (e)=> {
         e.preventDefault()
         const token = getSession('access_token')
         console.log(token ,'tttt')
-        await axios.post('http://localhost:3000/api/v1/property/add/info', formData, {
+        await axios.post('http://localhost:3000/api/v1/property/add/info',{price, title, description, taxRate, location, category, property} , {
           headers: {
             "Authorization" :` Bearer ${token}`
           } 
@@ -27,7 +37,7 @@ const PropertyInfo =  ({ handleFormChange }) => {
         })
     }
 
-    const [formData, setFormData] = useState({})
+   
 
     const handleInputChange = (e)=> {
       const { value, name } = e.target;
@@ -56,15 +66,15 @@ const PropertyInfo =  ({ handleFormChange }) => {
                   <PencilIcon className='absolute top-[33%] right-4 h-5 w-5 text-[#ff5a3c] ' />
                 </div>
                 <div className='relative'>
-                  <input className='w-full border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px] pr-10' name= "beforePrice"onChange={handleInputChange} type="number" placeholder='Before Price Label (ex: from)' />
+                  <input className='w-full border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px] pr-10' name= "before"onChange={handleInputChange} type="number" placeholder='Before Price Label (ex: from)' />
                   <PencilIcon className='absolute top-[33%] right-4  h-5 w-5 text-[#ff5a3c] ' />
                 </div>
                 <div className='relative'>
-                  <input className='w-full border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px] pr-10' name= "afterPrice " onChange={handleInputChange} type="number" placeholder='After Price Label (ex: /month)' />
+                  <input className='w-full border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px] pr-10' name= "after" onChange={handleInputChange} type="number" placeholder='After Price Label (ex: /month)' />
                   <PencilIcon className='absolute top-[33%] right-4  h-5 w-5 text-[#ff5a3c] ' />
                 </div>
                 <div className='relative'>
-                  <input className='w-full border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px] pr-10'  name= "tax" onChange={handleInputChange} type="number" placeholder='Yearly Tax Rate' />
+                  <input className='w-full border border-solid border-[#e4ecf2] px-[15px] py-[10px] min-h-[65px] pr-10'  name= "taxRate" onChange={handleInputChange} type="number" placeholder='Yearly Tax Rate' />
                   <PencilIcon className='absolute top-[33%] right-4  h-5 w-5 text-[#ff5a3c]' />
                 </div>
             </div>

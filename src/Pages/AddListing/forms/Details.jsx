@@ -79,8 +79,8 @@ const Details = ({handleFormChange}) => {
       const { value, name, checked } = e.target
       
       if (checked) {
-          console.log(e.target.value, 'target')
           setFormData(prev=> ({...prev, [name]: checked}))
+         
       } else if (value) {
         setFormData(prev=> ({...prev, [name]: value}))
       }
