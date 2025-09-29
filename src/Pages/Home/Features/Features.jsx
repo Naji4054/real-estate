@@ -3,7 +3,7 @@ import { FeatureData } from "../../../Data/features";
 import FeaturedCard from "./FeaturedCard";
 import axios from "axios";
 
-const   Features = (props)=> {
+const   Features = ()=> {
 
     const [FeatureData, setFeatureData] =  useState([])
     const featchData = async () => {
@@ -13,7 +13,7 @@ const   Features = (props)=> {
         featchData()
     },[])
 
-    console.log(props)
+    
 
     return (
         <>

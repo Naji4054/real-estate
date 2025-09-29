@@ -85,7 +85,7 @@ const Property = () => {
             <div>
                 <p className='text-[18px] mb-4 font-semibold'>Location</p>
             </div>
-            <div class='flex flex-col gap-3'>
+            <div className='flex flex-col gap-3'>
               <div className="flex items-center space-x-2">
                 <input type="checkbox" id="new-york" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
                 <label htmlFor="new-york">New York</label>
@@ -111,25 +111,25 @@ const Property = () => {
             <div>
               <p className='text-[18px] mb-4 font-semibold'>Amenities</p>
             </div>
-            <div class='flex flex-col gap-3'>
-              <div class="flex items-center space-x-2">
-                <input type="checkbox" id="furnished" class="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
+            <div className='flex flex-col gap-3'>
+              <div className="flex items-center space-x-2">
+                <input type="checkbox" id="furnished" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
                 <label htmlFor="furnished">Furnished</label>
               </div>
-              <div class="flex items-center space-x-2">
-                <input type="checkbox" id="swimming-pool" class="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
+              <div className="flex items-center space-x-2">
+                <input type="checkbox" id="swimming-pool" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
                 <label htmlFor="swimming-pool">Swimming pool</label>
               </div>
-              <div class="flex items-center space-x-2">
-                <input type="checkbox" id="backyard" class="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
+              <div className="flex items-center space-x-2">
+                <input type="checkbox" id="backyard" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
                 <label htmlFor="backyard">Backyard</label>
               </div>
-              <div class="flex items-center space-x-2">
-                <input type="checkbox" id="elevator" class="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
+              <div className="flex items-center space-x-2">
+                <input type="checkbox" id="elevator" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
                 <label htmlFor="elevator">Elevator</label>
               </div>
-              <div class="flex items-center space-x-2">
-                <input type="checkbox" id="garage-attached" class="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
+              <div className="flex items-center space-x-2">
+                <input type="checkbox" id="garage-attached" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
                 <label htmlFor="garage-attached">Garage Attached</label>
               </div>
             </div>
@@ -144,12 +144,12 @@ const Property = () => {
             <p className='text-[18px] mb-4 font-semibold'>Sell / Rent</p>
           </div>
           <div >
-            <div class="flex items-center space-x-2">
-              <input type="checkbox" id="rent" class="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
+            <div className="flex items-center space-x-2">
+              <input type="checkbox" id="rent" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
               <label htmlFor="rent">  For Sale</label>
             </div>
-            <div class="flex items-center space-x-2">
-              <input type="checkbox" id="rent" class="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
+            <div className="flex items-center space-x-2">
+              <input type="checkbox" id="rent" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
               <label htmlFor="rent">For Rent</label>
             </div>
           </div>
