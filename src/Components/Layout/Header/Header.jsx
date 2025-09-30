@@ -19,26 +19,26 @@ import { AuthContext } from "../../../Pages/Context/AuthContext";
                     <li className="relative group">
                         <NavLink to={'/about '}>About</NavLink>
                      
-                                <div className="bg-red-200 rounded-sm p-4 absolute hidden group-hover:block">
+                                {/* <div className="bg-red-200 rounded-sm p-4 absolute hidden group-hover:block">
                                     <ul className="flex flex-col">
                                         <button><li>Services</li></button>
                                         <button><li>Our Team</li></button>
                                         <button><li>FAQ</li></button>
                                     </ul>
-                                </div> 
+                                </div>  */}
                     </li>
-                    <li className="relative group">
-                        <button onClick={()=> setIsOpen(prev=> !prev)}>Pages</button>
+                    {/* <li className="relative group"> */}
+                        {/* <button onClick={()=> setIsOpen(prev=> !prev)}>Pages</button> */}
                      
-                                <div className="bg-red-200 rounded-sm p-4 absolute hidden group-hover:block">
+                                {/* <div className="bg-red-200 rounded-sm p-4 absolute hidden group-hover:block">
                                     <ul className="flex flex-col">
                                         <button><li>View Property</li></button>
                                         <button><li>Add Listing</li></button>
                                         <button><li>Contact</li></button>
                                     </ul>
-                                </div> 
-                    </li>
-                    <li>Property</li>
+                                </div>  */}
+                    {/* </li> */}
+                    <Link to={'/properties'}><li>Property</li></Link>
                     <li>Contact</li>
                 </ul>
             </div>

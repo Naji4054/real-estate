@@ -4,6 +4,7 @@ import Slider from '@mui/material/Slider';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import PropertyCards from './PropertyCards';
+import BookingPage from '../../Utils/Meeting';
 
 const Property = () => {
   function valuetext(price) {
@@ -16,6 +17,8 @@ const Property = () => {
     useEffect (() => {
         featchData()
     },[])
+
+    
 
   return (
     <section>
@@ -178,6 +181,11 @@ const Property = () => {
                 }     
                         
             </div>
+            <div>
+                {
+                  <BookingPage/>
+                }
+              </div>
       </div>
 
      </div>

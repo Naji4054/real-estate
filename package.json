@@ -23,6 +23,7 @@
     "lodash.debounce": "^4.0.8",
     "react": "^19.1.1",
     "react-apexcharts": "^1.7.0",
+    "react-calendly": "^4.4.0",
     "react-dom": "^19.1.1",
     "react-dropdown-select": "^4.12.2",
     "react-hot-toast": "^2.6.0",
