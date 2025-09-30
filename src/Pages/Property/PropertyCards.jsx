@@ -1,17 +1,18 @@
-import React, { useCallback, useEffect } from 'react'
-
-import useCalendlyPopup from '../../Utils/Meeting';
+import React, { useEffect } from 'react'
 import { PopupButton } from 'react-calendly';
-
+import { IconBrandWhatsappFilled } from '@tabler/icons-react';
+import useWhatsapp from '../../Utils/useWhatsapp';
 
 const PropertyCards = (props) => {
 
     const property = props.data;
    
+    const startWhatsapp = useWhatsapp()
 
 useEffect(()=>{
     console.log(property, 'property')
 },[property])
+
 
  
 
@@ -43,17 +44,26 @@ useEffect(()=>{
               
               
             </div>
-            <div className='flex justify-center border border-solid border-[#ff5a3c] text-[white] p-[8px_18px] bg-[#ff5a3c] rounded-[5px]' >
-            <PopupButton
-        url="https://calendly.com/mhdnaji488"
-        /*
-         * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
-         * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
-         */
-        rootElement={document.getElementById("root")}
-        text="Click here to schedule!"
-      />
+            <div >
+              <div>
+                <PopupButton
+                  url="https://calendly.com/mhdnaji488"
+                  /*
+                  * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+                  * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+                  */
+                  rootElement={document.getElementById("root")}
+                  text="Click here to schedule!"
+                />
               </div>
+              <div>
+                <button onClick={()=> startWhatsapp(
+                  property._id,
+                  property.title,
+                  property.category
+                )}><IconBrandWhatsappFilled className='text-[#25D366]'/></button>
+              </div>
+            </div>
 
        </div>
     </div>
