@@ -6,7 +6,7 @@ import useWhatsapp from '../../Utils/useWhatsapp';
 const PropertyCards = (props) => {
 
     const property = props.data;
-   
+   // initialize the usewhtsapp hook and pass the arguments later
     const startWhatsapp = useWhatsapp()
 
 useEffect(()=>{
@@ -58,6 +58,7 @@ useEffect(()=>{
               </div>
               <div>
                 <button onClick={()=> startWhatsapp(
+                  // change the parameters to the required field
                   property._id,
                   property.title,
                   property.category
@@ -70,4 +71,4 @@ useEffect(()=>{
   )
 }
 
-export default PropertyCards
+export default PropertyCards;
