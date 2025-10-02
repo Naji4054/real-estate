@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { PopupButton } from 'react-calendly';
-import { IconBrandWhatsappFilled } from '@tabler/icons-react';
+import { IconBrandWhatsappFilled ,IconMailFilled} from '@tabler/icons-react';
 import useWhatsapp from '../../Utils/useWhatsapp';
+import { getSession } from '../../Utils/storageHelpers';
+import axios from 'axios';
 
 const PropertyCards = (props) => {
 
@@ -9,12 +11,24 @@ const PropertyCards = (props) => {
    // initialize the usewhtsapp hook and pass the arguments later
     const startWhatsapp = useWhatsapp()
 
-useEffect(()=>{
-    console.log(property, 'property')
-},[property])
+// useEffect(()=>{
+//     console.log(property, 'property')
+// },[property])
 
 
- 
+
+  const handleEmailEnquiry = async() => {
+    const token = getSession('access_token')
+    await axios.post('http://localhost:3000/api/v1/property/send-mail', {propertyId: property._id}, {
+      headers: {
+          "Authorization" :` Bearer ${token}`
+        }
+    }).then(res=> {
+      console.log(res.data)
+    }).catch(err=> {
+      console.error(err)
+    })
+  }
 
   return (
     <div className='mx-auto'>
@@ -63,6 +77,9 @@ useEffect(()=>{
                   property.title,
                   property.category
                 )}><IconBrandWhatsappFilled className='text-[#25D366]'/></button>
+              </div>
+              <div>
+                <button onClick={handleEmailEnquiry}><IconMailFilled/></button>
               </div>
             </div>
 
