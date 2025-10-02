@@ -4,6 +4,7 @@ import Slider from '@mui/material/Slider';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import PropertyCards from './PropertyCards';
+import SearchBar from '../../Components/SearchBar';
 
 
 const Property = () => {
@@ -34,6 +35,13 @@ const Property = () => {
     <div className=' container mx-auto grid grid-cols-4 gap-14'>
 
       <div className='col-start-1 col-end-2'>
+          {/* search-bar*/}
+
+
+        <div className='mb-[60px]'>
+            <SearchBar />
+        </div>
+
 
           {/* filter by price*/}
 
@@ -56,7 +64,7 @@ const Property = () => {
           
           {/* propety type */}
 
-          <div className='mb-[60px]'>
+        <div className='mb-[60px]'>
             <div>
               <p className='text-[18px] mb-4 font-semibold'>Property Type</p>
             </div>
@@ -90,11 +98,12 @@ const Property = () => {
                 <label htmlFor="single-family-home">Single Family Home</label>
               </div>
             </div>
-          </div>
+        </div>
 
 
-        {/* location */}
-          <div className='mb-[60px]'>
+          {/* location */}
+
+        <div className='mb-[60px]'>
             <div>
                 <p className='text-[18px] mb-4 font-semibold'>Location</p>
             </div>
@@ -116,11 +125,11 @@ const Property = () => {
                 <label htmlFor="florida">Florida</label>
               </div>
             </div>
-          </div>
+        </div>
 
-        {/* amenities */}
+          {/* amenities */}
 
-          <div className='mb-[60px]'>
+        <div className='mb-[60px]'>
             <div>
               <p className='text-[18px] mb-4 font-semibold'>Amenities</p>
             </div>
@@ -147,10 +156,10 @@ const Property = () => {
               </div>
             </div>
 
-          </div>
+        </div>
 
 
-        {/* sell/ rent*/}
+          {/* sell/ rent*/}
 
         <div className='mb-[60px]'>
           <div>

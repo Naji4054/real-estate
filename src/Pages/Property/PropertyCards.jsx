@@ -16,6 +16,7 @@ const PropertyCards = (props) => {
 // },[property])
 
 
+// emial enquiry
 
   const handleEmailEnquiry = async() => {
     const token = getSession('access_token')
