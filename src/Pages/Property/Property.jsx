@@ -2,24 +2,89 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback} from 'react'
 import PropertyCards from './PropertyCards';
 import SearchBar from '../../Components/SearchBar';
 
 
 const Property = () => {
+
+
   function valuetext(price) {
     return `${price}`;
   }
+  const [filters, setFilters] = useState({
+    priceRange:[0, 10000000],
+    propertyTypes: [],
+    locations:[],
+    amenities:[],
+    propertyStatus:[]
+  })
+
+  const [searchValue, setSearchValue] = useState('')
+  const [minMaxPrice, setMinMaxPrice] = useState([0, 10000000])
+
   const [propertyData, setPropertyData] = useState([])
-    const featchData = async() =>{
-        await axios.get('http://localhost:3000/api/v1/property/list').then(res => setPropertyData(res.data.data)).catch(err => console.log(err))
+
+  // handler for search 
+  const handleSearchChange = (value)=> {
+    setSearchValue(value)
+  }
+  // handler for price 
+  const handlePriceChange = (event, newValue) =>{
+    setFilters (prev => ({...prev, priceRange: newValue}))
+  }
+  //handler for filter
+  const handleCheckboxChange = (filterType, value) => {
+    setFilters(prevFilters => {
+      const currentValues = prevFilters[filterType];
+      const newValues = currentValues.includes(value)
+      ?currentValues.filter(v => v !== value):[...currentValues, value]
+      return { ...prevFilters, [filterType]: newValues };
+    })
+  }
+
+  const featchData = useCallback(async () => {
+    // Determine the max price for the initial slider range from the backend later,
+    // for now, hardcode or fetch a max value if available.
+  
+    try {
+      const res = await axios.post('http://localhost:3000/api/v1/property/list', {
+        filters: {
+          price: filters.priceRange,
+          category: filters.propertyTypes, // Property Type maps to 'category' in model
+          location: filters.locations,
+          amenities: filters.amenities,
+          property: filters.propertyStatus, // Sell/Rent maps to 'property' in model
+        },
+        searchValue: searchValue,
+        page: 1, // Reset to page 1 on filter/search change
+        limit: 10
+      });
+      setPropertyData(res.data.data);
+    } catch (err) {
+      console.log(err);
     }
-    useEffect (() => {
-        featchData()
-    },[])
+  }, [filters, searchValue]); // Depend on filters and searchValue
+
+  // Effect to re-fetch data whenever filters or search value changes
+  useEffect(() => {
+    featchData();
+  }, [featchData]);
 
     
+ const CheckboxFilter = ({ id, label, value, filterType }) => (
+    <div className="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        id={id}
+        className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded"
+        checked={filters[filterType].includes(value)}
+        onChange={() => handleCheckboxChange(filterType, value)}
+      />
+      <label htmlFor={id}>{label}</label>
+    </div>
+  );
 
   return (
     <section>
@@ -39,144 +104,97 @@ const Property = () => {
 
 
         <div className='mb-[60px]'>
-            <SearchBar />
+        <SearchBar handleSearch={handleSearchChange} />
         </div>
 
 
           {/* filter by price*/}
 
 
-        <div className='mb-[60px]'>
-          <div>
-            <p className='text-[18px] mb-3 font-semibold'>Filter by Price</p>
+
+          <div className='mb-[60px]'>
+            <div>
+              <p className='text-[18px] mb-3 font-semibold'>Filter by Price ({valuetext(filters.priceRange[0])} - {valuetext(filters.priceRange[1])})</p>
+            </div>
+            <div>
+              <Box sx={{ width: 250 }}>
+                <Slider
+                  getAriaLabel={() => 'Price range'}
+                  value={filters.priceRange}
+                  onChange={handlePriceChange}
+                  valueLabelDisplay="auto"
+                  getAriaValueText={valuetext}
+                  color="secondary"
+                  min={minMaxPrice[0]}
+                  max={minMaxPrice[1]}
+                />
+              </Box>
+            </div>
           </div>
-          <div>
-          <Box sx={{ width: 250 }}>
-            <Slider
-              aria-label="Temperature"
-              defaultValue={30}
-              getAriaValueText={valuetext}
-              color="secondary"
-            />
-          </Box>
-        </div>
-        </div>
           
           {/* propety type */}
 
-        <div className='mb-[60px]'>
+          <div className='mb-[60px]'>
             <div>
               <p className='text-[18px] mb-4 font-semibold'>Property Type</p>
             </div>
             <div className='flex flex-col gap-3'>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="house" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="house">House</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="villa" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="villa">Villa</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="office" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="office">Office</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="shop" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="shop">Shop</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="apartment" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="apartment">Apartment</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="studio" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="studio">Studio</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="single-family-home" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="single-family-home">Single Family Home</label>
-              </div>
+              {/* NOTE: value must match the `category` field data in your MongoDB documents */}
+              <CheckboxFilter id="house" label="House" value="House" filterType="propertyTypes" />
+              <CheckboxFilter id="villa" label="Villa" value="Villa" filterType="propertyTypes" />
+              <CheckboxFilter id="office" label="Office" value="Office" filterType="propertyTypes" />
+              <CheckboxFilter id="shop" label="Shop" value="Shop" filterType="propertyTypes" />
+              <CheckboxFilter id="apartment" label="Apartment" value="apartment" filterType="propertyTypes" />
+              <CheckboxFilter id="studio" label="Studio" value="studio" filterType="propertyTypes" />
+              <CheckboxFilter id="single-family-home" label="Single Family Home" value="Single Family Home" filterType="propertyTypes" />
             </div>
-        </div>
+          </div>
 
 
           {/* location */}
 
-        <div className='mb-[60px]'>
+          <div className='mb-[60px]'>
             <div>
-                <p className='text-[18px] mb-4 font-semibold'>Location</p>
+              <p className='text-[18px] mb-4 font-semibold'>Location</p>
             </div>
             <div className='flex flex-col gap-3'>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="new-york" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="new-york">New York</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="south-carolina" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="south-carolina">South Carolina</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="los-angeles" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="los-angeles">Los Angeles</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="florida" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="florida">Florida</label>
-              </div>
+              {/* NOTE: value must match the `location` field data in your MongoDB documents */}
+              <CheckboxFilter id="new-york" label="New York" value="New York" filterType="locations" />
+              <CheckboxFilter id="south-carolina" label="South Carolina" value="South Carolina" filterType="locations" />
+              <CheckboxFilter id="los-angeles" label="Los Angeles" value="Los Angeles" filterType="locations" />
+              <CheckboxFilter id="florida" label="Florida" value="Florida" filterType="locations" />
             </div>
-        </div>
+          </div>
 
           {/* amenities */}
 
-        <div className='mb-[60px]'>
+          <div className='mb-[60px]'>
             <div>
               <p className='text-[18px] mb-4 font-semibold'>Amenities</p>
             </div>
             <div className='flex flex-col gap-3'>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="furnished" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="furnished">Furnished</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="swimming-pool" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="swimming-pool">Swimming pool</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="backyard" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="backyard">Backyard</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="elevator" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="elevator">Elevator</label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <input type="checkbox" id="garage-attached" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-                <label htmlFor="garage-attached">Garage Attached</label>
-              </div>
+              {/* NOTE: id/label is descriptive, value must match the amenity field name in the model */}
+              <CheckboxFilter id="furnished" label="Furnished" value="furnished" filterType="amenities" />
+              <CheckboxFilter id="swimming-pool" label="Swimming pool" value="swimmingpool" filterType="amenities" />
+              <CheckboxFilter id="backyard" label="Backyard" value="backyard" filterType="amenities" />
+              <CheckboxFilter id="elavator" label="Elevator" value="elavator" filterType="amenities" />
+              <CheckboxFilter id="garage-attached" label="Garage Attached" value="garageattached" filterType="amenities" />
             </div>
-
-        </div>
-
+          </div>
 
           {/* sell/ rent*/}
 
-        <div className='mb-[60px]'>
-          <div>
-            <p className='text-[18px] mb-4 font-semibold'>Sell / Rent</p>
-          </div>
-          <div >
-            <div className="flex items-center space-x-2">
-              <input type="checkbox" id="rent" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-              <label htmlFor="rent">  For Sale</label>
+          <div className='mb-[60px]'>
+            <div>
+              <p className='text-[18px] mb-4 font-semibold'>Sell / Rent</p>
             </div>
-            <div className="flex items-center space-x-2">
-              <input type="checkbox" id="rent" className="h-5 w-5 text-[#ff5a3c] focus:ring-[#ff5a3c] border-gray-300 rounded" />
-              <label htmlFor="rent">For Rent</label>
+            <div>
+              {/* NOTE: value must match the `property` enum in the model: 'sale' or 'rent' */}
+              <CheckboxFilter id="for-sale" label="For Sale" value="sale" filterType="propertyStatus" />
+              <CheckboxFilter id="for-rent" label="For Rent" value="rent" filterType="propertyStatus" />
             </div>
           </div>
-        </div>
-        
+
       </div>
 
       <div className='col-start-2 col-end-5'>
