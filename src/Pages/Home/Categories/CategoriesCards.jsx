@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 const CategoriesCards = (props) => {
 const data = props.data
@@ -7,7 +8,7 @@ const data = props.data
     
       <div>
             
-            <img src ={data.image} alt="category imgae"  className='w-full' />
+            <Link to={'/properties'}><img src ={data.image} alt="category imgae"  className='w-full' /></Link>
            
               <div className='px-[15px] py-[15px]'>
                 <div className='text-[white] text-[13px]'>
@@ -18,7 +19,7 @@ const data = props.data
                 </div>
               </div>
               <div className='flex justify-between text-[white] px-[15px]'>
-                <p className='text-[16px]'>MORE DETAILS</p>
+               <Link to={'/properties'}> <p className='text-[16px]'>MORE DETAILS</p></Link>
                 <ArrowRightCircleIcon className='max-w-[20px]'/>
               </div>
             
