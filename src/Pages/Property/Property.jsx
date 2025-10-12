@@ -200,8 +200,7 @@ const Property = () => {
           <div className='mt-10'> 
             <button
               
-              className="w-full py-3 px-4 text-white font-semibold rounded-lg shadow-lg transition-colors duration-200"
-              style={{ backgroundColor: '#ff5a3c' }} // Using the theme color from the 'Properties' title
+              className="w-full py-3 px-4 text-white font-semibold rounded-lg shadow-lg transition-colors duration-200 bg-[#ff5a3c]"
             >
               Reset Filters
             </button>
@@ -212,7 +211,7 @@ const Property = () => {
       <div className="flex flex-col justify-center items-center mb-[50px]">
                 <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Properties</h3>
             </div>
-            <div className='container mx-auto grid grid-cols-2' >
+            <div className='container mx-auto grid grid-cols-2 gap-y-8' >
                 
                 {
                  propertyData.map((item)=> <PropertyCards key={item.id} data={item}/>)

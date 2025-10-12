@@ -33,14 +33,14 @@ const PropertyCards = (props) => {
 
   return (
     <div className='mx-auto'>
-      <div className='max-w-[350px]'>
-            <div className='mb-[10px]'>
-                <img src={`http://localhost:3000${property.media[0]}`} alt="image" className='w-full min-h-[262px]' />
+      <div className='max-w-[350px] transform  transition-all duration-300  cursor-pointer hover:shadow-xl hover:scale-[1.08] '>
+            <div className='mb-[10px] max-w-[350px] h-[262px]'>
+                <img src={`http://localhost:3000${property.media[0]}`} alt="image" className='w-full h-full' />
             </div>
-            <div className='mb-3 text-center font-bold'>
+            <div className='mb-1 text-center font-bold'>
                 <h3 >{property.title}</h3>
             </div>
-            <div className='flex justify-between pl-5 pr-5'>
+            <div className='flex justify-between pl-5 pr-5 mb-1'>
               <div className='flex gap-[10px]'>
                 <img src="/images/bed-icon.png" alt="bedroom" className='w-[15px] h-[23px]' />
                 <p>{property.details.bedroom}</p>
@@ -54,12 +54,12 @@ const PropertyCards = (props) => {
                 <p>{property.details.area} Sq.Ft</p>
               </div>
               <div className='flex'>
-                <p className='font-medium'>{property.category}</p>
+                <p className='font-semibold'>{property.category}</p>
               </div>
               
               
             </div>
-            <div >
+            <div className='flex justify-between items-center max-w-[260px] mx-auto' >
               <div>
                 <PopupButton
                   url="https://calendly.com/mhdnaji488"
@@ -68,7 +68,8 @@ const PropertyCards = (props) => {
                   * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
                   */
                   rootElement={document.getElementById("root")}
-                  text="Schedule Meeting"
+                  className=' text-[#ff5a3c] bg-[#ffeae6] p-[2px_4px] rounded-[5px]'
+                  text="Schedule Meeting!"
                 />
               </div>
               <div>
