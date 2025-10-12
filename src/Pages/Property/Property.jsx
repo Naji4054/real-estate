@@ -13,8 +13,10 @@ const Property = () => {
   function valuetext(price) {
     return `${price}`;
   }
+
+  
   const [filters, setFilters] = useState({
-    priceRange:[0, 10000000],
+    priceRange:[0, 5000000],
     propertyTypes: [],
     locations:[],
     amenities:[],
@@ -22,7 +24,7 @@ const Property = () => {
   })
 
   const [searchValue, setSearchValue] = useState('')
-  const [minMaxPrice, setMinMaxPrice] = useState([0, 10000000])
+  const [minMaxPrice, setMinMaxPrice] = useState([500, 600000])
 
   const [propertyData, setPropertyData] = useState([])
 
@@ -43,7 +45,7 @@ const Property = () => {
       return { ...prevFilters, [filterType]: newValues };
     })
   }
-
+ 
   const featchData = useCallback(async () => {
     // Determine the max price for the initial slider range from the backend later,
     // for now, hardcode or fetch a max value if available.
@@ -97,13 +99,13 @@ const Property = () => {
         </div>
       </div>
 
-    <div className=' container mx-auto grid grid-cols-4 gap-14'>
+    <div className=' container mx-auto grid grid-cols-4 gap-14 '>
 
-      <div className='col-start-1 col-end-2'>
+      <div className='col-start-1 col-end-2 bg-white rounded-xl shadow-[0_0_20px_0_rgba(0,0,0,0.08)] p-6 self-start'>
           {/* search-bar*/}
 
 
-        <div className='mb-[60px]'>
+        <div className='mb-[60px] border border-gray-300'>
         <SearchBar handleSearch={handleSearchChange} />
         </div>
 
@@ -112,12 +114,12 @@ const Property = () => {
 
 
 
-          <div className='mb-[60px]'>
+          <div className='mb-[40px]'>
             <div>
-              <p className='text-[18px] mb-3 font-semibold'>Filter by Price ({valuetext(filters.priceRange[0])} - {valuetext(filters.priceRange[1])})</p>
+              <p className='text-[18px] mb-3 font-semibold'>Filter by Price <span className='hidden'>({valuetext(filters.priceRange[0])} - {valuetext(filters.priceRange[1])})</span></p>
             </div>
             <div>
-              <Box sx={{ width: 250 }}>
+              <Box sx={{ width: 180 }}>
                 <Slider
                   getAriaLabel={() => 'Price range'}
                   value={filters.priceRange}
@@ -195,9 +197,18 @@ const Property = () => {
             </div>
           </div>
 
+          <div className='mt-10'> 
+            <button
+              
+              className="w-full py-3 px-4 text-white font-semibold rounded-lg shadow-lg transition-colors duration-200"
+              style={{ backgroundColor: '#ff5a3c' }} // Using the theme color from the 'Properties' title
+            >
+              Reset Filters
+            </button>
+           </div>
       </div>
 
-      <div className='col-start-2 col-end-5'>
+      <div className='col-start-2 col-end-5 bg-white rounded-xl shadow-[0_0_20px_0_rgba(0,0,0,0.08)] p-6'>
       <div className="flex flex-col justify-center items-center mb-[50px]">
                 <h3 className=" text-[#ff5a3c] bg-[#ffeae6] p-[2px_14px] rounded-[25px]">Properties</h3>
             </div>

@@ -68,7 +68,7 @@ const PropertyCards = (props) => {
                   * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
                   */
                   rootElement={document.getElementById("root")}
-                  text="Click here to schedule!"
+                  text="Schedule Meeting"
                 />
               </div>
               <div>
